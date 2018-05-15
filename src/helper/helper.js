@@ -16,15 +16,3 @@ const cleanFilmData = (filmData) => {
 }
 
 export default cleanFilmData;
-
-//vote_average
-
-//overview
-
-//release_date
-
-//poster_path
-
-//title
-
-//id
