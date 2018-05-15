@@ -1,11 +1,8 @@
 const addRecentFilms = (allFilms) => {
-  const filmsWithType = allFilms.map(film => {
-    return {
-      type: 'ADD_RECENT', 
-      ...film
-    }
-  })
-  return filmsWithType;
+  return {
+    type: 'ADD_RECENT', 
+    films: allFilms
+  }
 }
 
 export {

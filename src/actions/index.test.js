@@ -8,9 +8,9 @@ describe('addRecentFilms', () => {
     //execution
     let actual = actions.addRecentFilms(filmData);
     //assertion
-    expect(actual[0]).toEqual({
+    expect(actual).toEqual({
       type: 'ADD_RECENT',
-      ...filmData[0]
+      films: filmData
     });
   })
 })
