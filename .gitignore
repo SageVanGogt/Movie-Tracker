@@ -9,6 +9,9 @@
 # production
 /build
 
+#key
+/src/apiCall/apiKey.js
+
 # misc
 .DS_Store
 .env.local
