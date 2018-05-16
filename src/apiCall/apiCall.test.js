@@ -1,7 +1,6 @@
-import fetchRecentFilms from './apiCall';
+import {fetchRecentFilms, addUserFetch} from './apiCall';
 import mockData from '../mockData/mockData';
 import key from './apiKey';
-
 
 describe('apiCall', () => {
   describe('Fetch recent films', () => {
@@ -23,7 +22,7 @@ describe('apiCall', () => {
     })
 
     it('Should return an object if status code is ok', async () => {
-      
+
       await expect(fetchRecentFilms()).resolves.toEqual(mockData);
     })
 
@@ -35,6 +34,61 @@ describe('apiCall', () => {
 
       await expect(fetchRecentFilms()).rejects.toEqual('Failed to fetch data');
     })
+
+  })
+
+  describe('postNewUser', () => {
+    let mockUsers;
+
+    beforeEach(() => {
+      mockUsers = [{
+          name: "Doc",
+          email: "doc@doc.com",
+          password: "DocisGr8"
+        },
+        {
+          name: "Sage",
+          email: "sage@doc.com",
+          password: "DocisGr8"
+        }
+      ]
+
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve({
+            users: mockUsers
+          })
+        })
+      )
+    });
+
+
+    it('calls fetch with the correct data when adding a new user', async () => {
+      const mockUser = {
+        name: "Alan",
+        email: "alan@doc.com",
+        password: "DocisGr8"
+      }
+
+      const expected = ["localhost:3000/api/users/new",
+        {
+          body: JSON.stringify({
+            user: mockUser
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          },
+          method: "POST"
+        }
+      ]
+
+      await addUserFetch(mockUser)
+
+      expect(window.fetch).toHaveBeenCalledWith(...expected)
+    })
+
+    it.skip('sets an error when the fetch fails', () => {})
 
   })
 })
