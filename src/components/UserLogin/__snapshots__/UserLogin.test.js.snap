@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateNewUser should match the snapshot 1`] = `
+exports[`UserLogin should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CreateNewUser />,
+  Symbol(enzyme.__unrendered__): <UserLogin />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -19,13 +19,6 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <input
-          name="name"
-          onChange={[Function]}
-          placeholder="name"
-          type="text"
-          value=""
-/>,
-        <input
           name="email"
           onChange={[Function]}
           placeholder="email"
@@ -36,7 +29,7 @@ ShallowWrapper {
           name="password"
           onChange={[Function]}
           placeholder="password"
-          type="text"
+          type="password"
           value=""
 />,
         <input
@@ -48,21 +41,6 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "name": "name",
-          "onChange": [Function],
-          "placeholder": "name",
-          "type": "text",
-          "value": "",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "input",
-      },
       Object {
         "instance": null,
         "key": undefined,
@@ -86,7 +64,7 @@ ShallowWrapper {
           "name": "password",
           "onChange": [Function],
           "placeholder": "password",
-          "type": "text",
+          "type": "password",
           "value": "",
         },
         "ref": null,
@@ -115,13 +93,6 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <input
-            name="name"
-            onChange={[Function]}
-            placeholder="name"
-            type="text"
-            value=""
-/>,
-          <input
             name="email"
             onChange={[Function]}
             placeholder="email"
@@ -132,7 +103,7 @@ ShallowWrapper {
             name="password"
             onChange={[Function]}
             placeholder="password"
-            type="text"
+            type="password"
             value=""
 />,
           <input
@@ -144,21 +115,6 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "name": "name",
-            "onChange": [Function],
-            "placeholder": "name",
-            "type": "text",
-            "value": "",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "input",
-        },
         Object {
           "instance": null,
           "key": undefined,
@@ -182,7 +138,7 @@ ShallowWrapper {
             "name": "password",
             "onChange": [Function],
             "placeholder": "password",
-            "type": "text",
+            "type": "password",
             "value": "",
           },
           "ref": null,

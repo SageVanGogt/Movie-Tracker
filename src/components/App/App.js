@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { addRecentFilms } from './../../actions/index';
 import CreateNewUser from "./../CreateNewUser/CreateNewUser";
 import UserLogin from './../UserLogin/UserLogin';
+import { Route } from 'react-router-dom';
 import './App.css';
 
 export class App extends Component {

@@ -5,6 +5,15 @@ const addRecentFilms = (allFilms) => {
   }
 }
 
+const addUserToStore = (user) => {
+  return {
+    type: "ADD_USER",
+    id: user.id,
+    name: user.name
+  }
+}
+
 export {
-  addRecentFilms
+  addRecentFilms,
+  addUserToStore
 }
