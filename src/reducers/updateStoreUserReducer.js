@@ -1,9 +1,11 @@
 const updateStoreUserReducer = (state = {}, user) => {
   switch(user.type) {
     case 'ADD_USER': 
-    return {id: user.id, name: user.name};
+      return {id: user.id, name: user.name};
+    case 'LOGOUT_USER':
+      return {};
     default:
-    return state;
+      return state;
   }
 }
 

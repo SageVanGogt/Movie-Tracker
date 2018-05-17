@@ -13,7 +13,15 @@ const updateStoreUser = (user) => {
   }
 }
 
+const logOutUser = () => {
+  return {
+    type: "LOGOUT_USER"
+  }
+}
+
 export {
   addRecentFilms,
-  updateStoreUser
+  updateStoreUser,
+  logOutUser
 }
+
