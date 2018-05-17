@@ -29,4 +29,17 @@ describe('updateStoreUser', () => {
       name: mockUser.name
     })
   })
+
+})
+
+describe('logOutUser', () => {
+  it('should return an object with type LOGOUT_USER', () => {
+    const actual = actions.logOutUser();
+
+    expect(actual).toEqual({
+      type: 'LOGOUT_USER'
+    });
+  })
+
+
 })

@@ -7,6 +7,7 @@ import CreateNewUser from "./../CreateNewUser/CreateNewUser";
 import UserLogin from './../UserLogin/UserLogin';
 import { Route } from 'react-router-dom';
 import './App.css';
+import Nav from '../Nav/Nav';
 
 export class App extends Component {
   
@@ -25,6 +26,8 @@ export class App extends Component {
       <div className="App">
        <UserLogin/>
        <CreateNewUser />
+       <Nav />
+
       </div>
     );
   }
