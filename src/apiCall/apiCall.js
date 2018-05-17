@@ -22,7 +22,8 @@ const addUserFetch = async (user) => {
     })
 
   } catch(err){
-
+    const error = 'Failed to fetch data'
+    throw error;
   }
 }
 
