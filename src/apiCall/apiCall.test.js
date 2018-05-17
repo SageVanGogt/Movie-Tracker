@@ -166,6 +166,6 @@ describe("apiCall", () => {
       }))
 
       await expect(fetchUser(mockUser)).rejects.toEqual('Failed to fetch data');
-    })
-  })
+    });
+  });
 });

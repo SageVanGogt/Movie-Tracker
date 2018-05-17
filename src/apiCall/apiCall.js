@@ -15,14 +15,15 @@ const fetchRecentFilms = async () => {
 const addUserFetch = async (user) => {
   const url = "http://localhost:3000/api/users/new"
   try {
-    await fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
         Accept: 'application/json',
         "Content-Type": "application/json"}
     })
-
+    const userData = await response.json();
+    return userData;
   } catch(err){
     const error = 'Failed to fetch data'
     throw error;

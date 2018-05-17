@@ -14,3 +14,20 @@ describe('addRecentFilms', () => {
     });
   })
 })
+
+describe('addUserToStore', () => {
+  it('has a type of ADD_USER', () => {
+    const mockUser = {
+        "id": 1,
+        "name": "Taylor",
+        "password": "password",
+        "email": "tman2272@aol.com"
+    }
+    const actual = actions.addUserToStore(mockUser);
+
+    expect(actual).toEqual({
+      type: "ADD_USER",
+      ...mockUser
+    })
+  })
+})
