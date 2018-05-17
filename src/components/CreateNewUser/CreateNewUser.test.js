@@ -1,7 +1,7 @@
 import CreateNewUser from "./CreateNewUser";
 import React from "react";
 import { shallow } from "enzyme";
-import addUserFetch from "./../../apiCall/apiCall";
+import { addUserFetch } from "./../../apiCall/apiCall";
 
 jest.mock('./../../apiCall/apiCall');
 
@@ -40,8 +40,28 @@ describe("CreateNewUser", () => {
     expect(wrapper.state()).toEqual(expected);
   });
 
+  it('should reset state after handleSubmit', async () => {
+    wrapper.setState({
+      name: "cat",
+      email: "dog",
+      password: "catdog"
+    });
+    const expected = {
+      name: "",
+      email: "",
+      password: ""
+    };
+    let mockEvent = {preventDefault: jest.fn()};  
+
+    await wrapper.instance().handleSubmit(mockEvent);
+
+    expect(wrapper.state()).toEqual(expected);
+  })
+
   it('should calls addUserFetch callback after adding user', async () => {
-    let mockEvent = {preventDefault: jest.fn()}
-    Promise.resolve(wrapper.instance().handleSubmit(mockEvent))
+    let mockEvent = {preventDefault: jest.fn()};
+    Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
+    
+    expect(addUserFetch).toHaveBeenCalledWith(wrapper.state());  
   });
 });

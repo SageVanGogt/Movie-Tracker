@@ -5,6 +5,12 @@ const addUserFetch = jest.fn().mockImplementation(() => Promise.resolve({
     email: "great",
     password: ""
 }))
+const fetchUser = jest.fn().mockImplementation(() => Promise.resolve({
+    "id": 1,
+    "name": "Taylor",
+    "password": "password",
+    "email": "tman2272@aol.com"
+}))
 
-export {fetchRecentFilms, addUserFetch};
+export {fetchRecentFilms, addUserFetch, fetchUser};
 

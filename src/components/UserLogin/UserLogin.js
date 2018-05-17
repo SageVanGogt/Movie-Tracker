@@ -26,7 +26,7 @@ class UserLogin extends Component {
         email: "",
         password: ""
       })
-      console.log(response.data)
+      // console.log(response.data)
     } catch(err) {
       const error = "Failed to grab user data";
       throw error
