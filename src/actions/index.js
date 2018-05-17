@@ -8,7 +8,8 @@ const addRecentFilms = (allFilms) => {
 const addUserToStore = (user) => {
   return {
     type: "ADD_USER",
-    ...user
+    id: user.id,
+    name: user.name
   }
 }
 

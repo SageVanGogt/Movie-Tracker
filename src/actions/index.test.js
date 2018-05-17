@@ -3,11 +3,9 @@ import mockCleanData from './../mockData/mockCleanData';
 
 describe('addRecentFilms', () => {
   it('has a type of ADD_RECENT', () => {
-    //setup
-    let filmData = mockCleanData;
-    //execution
-    let actual = actions.addRecentFilms(filmData);
-    //assertion
+    const filmData = mockCleanData;
+    const actual = actions.addRecentFilms(filmData);
+    
     expect(actual).toEqual({
       type: 'ADD_RECENT',
       films: filmData
@@ -27,7 +25,8 @@ describe('addUserToStore', () => {
 
     expect(actual).toEqual({
       type: "ADD_USER",
-      ...mockUser
+      id: mockUser.id,
+      name: mockUser.name
     })
   })
 })
