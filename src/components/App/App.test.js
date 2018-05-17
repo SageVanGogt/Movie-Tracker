@@ -30,6 +30,28 @@ describe('App', () => {
       expect(mockDispatch).toHaveBeenCalledWith(mockAction)
     })
   })
+
+  describe('mapStateToProps', () => {
+    it('should map the user to props', () => {
+      const mockState = {
+        user: {
+          id: 1,
+          name: 'Alan',
+          },
+        films: []
+      }
+
+      const expected = {
+        user: {
+          id: 1,
+          name: 'Alan',
+        }
+      }
+      
+      const mappedProps = mapStateToProps(mockState)
+      expect(mappedProps).toEqual(expected)
+    })
+  })
 })
 
 
