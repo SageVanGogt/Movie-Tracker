@@ -36,8 +36,11 @@ ShallowWrapper {
           type="text"
           value=""
 />,
+        <input
+          type="submit"
+/>,
       ],
-      "onChange": [Function],
+      "onSubmit": [Function],
       "type": "submit",
     },
     "ref": null,
@@ -84,6 +87,17 @@ ShallowWrapper {
         "rendered": null,
         "type": "input",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "type": "submit",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
     ],
     "type": "form",
   },
@@ -112,8 +126,11 @@ ShallowWrapper {
             type="text"
             value=""
 />,
+          <input
+            type="submit"
+/>,
         ],
-        "onChange": [Function],
+        "onSubmit": [Function],
         "type": "submit",
       },
       "ref": null,
@@ -155,6 +172,17 @@ ShallowWrapper {
             "onChange": [Function],
             "type": "text",
             "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "type": "submit",
           },
           "ref": null,
           "rendered": null,

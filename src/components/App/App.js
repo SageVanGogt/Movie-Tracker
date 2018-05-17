@@ -4,6 +4,7 @@ import cleanFilmData from './../../helper/helper';
 import { connect } from 'react-redux';
 import { addRecentFilms } from './../../actions/index';
 import CreateNewUser from "./../CreateNewUser/CreateNewUser";
+import UserLogin from './../UserLogin/UserLogin';
 import './App.css';
 
 export class App extends Component {
@@ -21,6 +22,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
+       <UserLogin/>
        <CreateNewUser />
       </div>
     );

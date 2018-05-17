@@ -29,5 +29,28 @@ const addUserFetch = async (user) => {
   }
 }
 
-export {fetchRecentFilms, 
-  addUserFetch};
+const fetchUsers = async (user) => {
+  const  userBody = {
+    method: 'GET',
+    body: JSON.stringify({
+      email: user.email,
+      password: user.password
+    }),
+    headers: {"Content-Type": "application/json"}
+  }
+  const url = 'http://localhost:3000/api/users';
+  try {
+    const response = await fetch(url, userBody)
+    const userData = await response.json();
+    return userData;
+  } catch (err) {
+    const error = 'Failed to fetch data'
+    throw error;
+  }
+}
+
+export {
+  fetchRecentFilms, 
+  addUserFetch, 
+  fetchUsers
+};

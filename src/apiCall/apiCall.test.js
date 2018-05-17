@@ -1,4 +1,8 @@
-import { fetchRecentFilms, addUserFetch } from "./apiCall";
+import {
+  fetchRecentFilms,
+  addUserFetch,
+  fetchUsers
+} from "./apiCall";
 import mockData from "../mockData/mockData";
 import key from "./apiKey";
 
@@ -40,8 +44,7 @@ describe("apiCall", () => {
     let mockUsers;
 
     beforeEach(() => {
-      mockUsers = [
-        {
+      mockUsers = [{
           name: "Doc",
           email: "doc@doc.com",
           password: "DocisGr8"
@@ -74,10 +77,9 @@ describe("apiCall", () => {
       const expected = [
         "http://localhost:3000/api/users/new",
         {
-          body: JSON.stringify({
-            user: mockUser
-          }),
+          body: JSON.stringify(mockUser),
           headers: {
+            Accept: 'application/json', 
             "Content-Type": "application/json"
           },
           method: "POST"
@@ -99,4 +101,50 @@ describe("apiCall", () => {
       await expect(addUserFetch()).rejects.toEqual("Failed to fetch data");
     });
   });
+  describe('fetchUsers', () => {
+    let mockUsers;
+    let mockUser;
+    beforeEach(() => {
+      mockUser = {
+        "password": "password",
+        "email": "tman2272@aol.com"
+      }
+      mockUsers = [{
+                "id": 1,
+                "name": "Taylor",
+                "password": "password",
+                "email": "tman2272@aol.com"
+              }, {
+                "id": 2,
+                "name": "Dude",
+                "password": "password",
+                "email": "dude6969@aol.com"
+              }]
+
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(mockUsers)
+        })
+      );
+    });
+    
+    it('Should be called with the correct params', async () => {
+    const url = 'http://localhost:3000/api/users'
+      const expected = [url, {
+          method: 'GET',
+          body: JSON.stringify({
+            email: mockUser.email,
+            password: mockUser.password
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }]
+      await fetchUsers(mockUser);
+
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    })
+   
+    })
 });
