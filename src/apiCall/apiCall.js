@@ -31,18 +31,15 @@ const addUserFetch = async (user) => {
 
 const fetchUsers = async (user) => {
   const  userBody = {
-    method: 'GET',
-    body: JSON.stringify({
-      email: user.email,
-      password: user.password
-    }),
+    method: 'POST',
+    body: JSON.stringify(user),
     headers: {"Content-Type": "application/json"}
   }
   const url = 'http://localhost:3000/api/users';
   try {
     const response = await fetch(url, userBody)
     const userData = await response.json();
-    return userData;
+    return userData.data;
   } catch (err) {
     const error = 'Failed to fetch data'
     throw error;

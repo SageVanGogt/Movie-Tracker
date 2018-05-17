@@ -20,6 +20,7 @@ class UserLogin extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(this.state)
     try {
       const response = await fetchUsers(this.state)
       console.log(response)
@@ -28,7 +29,7 @@ class UserLogin extends Component {
         password: ""
       })
     } catch(err) {
-      const error = "Failed to submit user data";
+      const error = "Failed to grab user data";
       throw error
     }
   };

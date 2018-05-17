@@ -132,10 +132,10 @@ describe("apiCall", () => {
     it('Should be called with the correct params', async () => {
     const url = 'http://localhost:3000/api/users'
       const expected = [url, {
-          method: 'GET',
+          method: 'POST',
           body: JSON.stringify({
-            email: mockUser.email,
-            password: mockUser.password
+            password: mockUser.password,
+            email: mockUser.email
           }),
           headers: {
             "Content-Type": "application/json"
