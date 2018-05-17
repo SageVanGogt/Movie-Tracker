@@ -1,7 +1,7 @@
 import {
   fetchRecentFilms,
   addUserFetch,
-  fetchUsers
+  fetchUser
 } from "./apiCall";
 import mockData from "../mockData/mockData";
 import key from "./apiKey";
@@ -42,8 +42,15 @@ describe("apiCall", () => {
 
   describe("postNewUser", () => {
     let mockUsers;
+    let mockUser
+
 
     beforeEach(() => {
+      mockUser = {
+        name: "Alan",
+        email: "alan@doc.com",
+        password: "DocisGr8"
+      };
       mockUsers = [{
           name: "Doc",
           email: "doc@doc.com",
@@ -68,12 +75,6 @@ describe("apiCall", () => {
     });
 
     it("calls fetch with the correct data when adding a new user", async () => {
-      const mockUser = {
-        name: "Alan",
-        email: "alan@doc.com",
-        password: "DocisGr8"
-      };
-
       const expected = [
         "http://localhost:3000/api/users/new",
         {
@@ -95,15 +96,16 @@ describe("apiCall", () => {
       window.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
           status: 500
-        })
-      );
+        }));
 
-      await expect(addUserFetch()).rejects.toEqual("Failed to fetch data");
+      await expect(addUserFetch(mockUser)).rejects.toEqual("Failed to fetch data");
     });
   });
-  describe('fetchUsers', () => {
+
+  describe('fetchUser', () => {
     let mockUsers;
     let mockUser;
+
     beforeEach(() => {
       mockUser = {
         "password": "password",
@@ -119,32 +121,51 @@ describe("apiCall", () => {
                 "name": "Dude",
                 "password": "password",
                 "email": "dude6969@aol.com"
-              }]
-
+              }];
       window.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
           status: 200,
-          json: () => Promise.resolve(mockUsers)
+          json: () => Promise.resolve(mockUsers[0])
         })
       );
     });
     
     it('Should be called with the correct params', async () => {
-    const url = 'http://localhost:3000/api/users'
+      const url = 'http://localhost:3000/api/users'
       const expected = [url, {
-          method: 'POST',
-          body: JSON.stringify({
-            password: mockUser.password,
-            email: mockUser.email
-          }),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }]
-      await fetchUsers(mockUser);
+        method: 'POST',
+        body: JSON.stringify({
+          email: mockUser.email,
+          password: mockUser.password
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }]
+      await fetchUser(mockUser);
 
       expect(window.fetch).toHaveBeenCalledWith(...expected);
     })
    
+    it('Should return an object if the status code is ok', async () => {
+      const expected = {
+        "id": 1,
+        "name": "Taylor",
+        "password": "password",
+        "email": "tman2272@aol.com"
+      };
+      const actual = await fetchUser(mockUser);
+
+      expect(actual).toEqual(expected);
+    }) 
+
+    it('sets an error when the fetch fails', async () => {
+      window.fetch = jest.fn().mockImplementation(() => 
+      Promise.resolve({
+        status: 500
+      }))
+
+      await expect(fetchUser(mockUser)).rejects.toEqual('Failed to fetch data');
     })
+  })
 });

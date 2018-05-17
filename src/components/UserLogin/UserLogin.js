@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchUsers } from "../../apiCall/apiCall";
+import { fetchUser } from "../../apiCall/apiCall";
 
 class UserLogin extends Component {
   constructor(props) {
@@ -20,14 +20,13 @@ class UserLogin extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(this.state)
     try {
-      const response = await fetchUsers(this.state)
-      console.log(response)
+      const response = await fetchUser(this.state)
       this.setState({
         email: "",
         password: ""
       })
+      console.log(response.data)
     } catch(err) {
       const error = "Failed to grab user data";
       throw error
@@ -42,12 +41,14 @@ class UserLogin extends Component {
           value={this.state.email}
           name="email"
           onChange={this.handleChange}
+          placeholder="email"
         />
         <input
-          type="text"
+          type="password"
           value={this.state.password}
           name="password"
           onChange={this.handleChange}
+          placeholder="password"          
         />
          < input
          type = "submit"
@@ -57,4 +58,4 @@ class UserLogin extends Component {
   }
 }
 
-export default UserLogin
+export default UserLogin;

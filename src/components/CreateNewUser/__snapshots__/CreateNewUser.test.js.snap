@@ -21,18 +21,21 @@ ShallowWrapper {
         <input
           name="name"
           onChange={[Function]}
+          placeholder="name"
           type="text"
           value=""
 />,
         <input
           name="email"
           onChange={[Function]}
+          placeholder="email"
           type="text"
           value=""
 />,
         <input
           name="password"
           onChange={[Function]}
+          placeholder="password"
           type="text"
           value=""
 />,
@@ -52,6 +55,7 @@ ShallowWrapper {
         "props": Object {
           "name": "name",
           "onChange": [Function],
+          "placeholder": "name",
           "type": "text",
           "value": "",
         },
@@ -66,6 +70,7 @@ ShallowWrapper {
         "props": Object {
           "name": "email",
           "onChange": [Function],
+          "placeholder": "email",
           "type": "text",
           "value": "",
         },
@@ -80,6 +85,7 @@ ShallowWrapper {
         "props": Object {
           "name": "password",
           "onChange": [Function],
+          "placeholder": "password",
           "type": "text",
           "value": "",
         },
@@ -111,18 +117,21 @@ ShallowWrapper {
           <input
             name="name"
             onChange={[Function]}
+            placeholder="name"
             type="text"
             value=""
 />,
           <input
             name="email"
             onChange={[Function]}
+            placeholder="email"
             type="text"
             value=""
 />,
           <input
             name="password"
             onChange={[Function]}
+            placeholder="password"
             type="text"
             value=""
 />,
@@ -142,6 +151,7 @@ ShallowWrapper {
           "props": Object {
             "name": "name",
             "onChange": [Function],
+            "placeholder": "name",
             "type": "text",
             "value": "",
           },
@@ -156,6 +166,7 @@ ShallowWrapper {
           "props": Object {
             "name": "email",
             "onChange": [Function],
+            "placeholder": "email",
             "type": "text",
             "value": "",
           },
@@ -170,6 +181,7 @@ ShallowWrapper {
           "props": Object {
             "name": "password",
             "onChange": [Function],
+            "placeholder": "password",
             "type": "text",
             "value": "",
           },

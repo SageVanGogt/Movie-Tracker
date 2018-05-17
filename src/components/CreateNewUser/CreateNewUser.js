@@ -42,18 +42,21 @@ class CreateNewUser extends Component {
           value={this.state.name}
           name="name"
           onChange={this.handleChange}
+          placeholder="name"          
         />
         <input
           type="text"
           value={this.state.email}
           name="email"
           onChange={this.handleChange}
+          placeholder="email"          
         />
         <input
           type="text"
           value={this.state.password}
           name="password"
           onChange={this.handleChange}
+          placeholder="password"          
         />
          < input
          type = "submit"
