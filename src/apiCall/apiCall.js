@@ -12,4 +12,20 @@ const fetchRecentFilms = async () => {
   }
 }
 
-export default fetchRecentFilms;
+const addUserFetch = async (user) => {
+  const url = "localhost:3000/api/users/new"
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify({user}),
+      headers: {"Content-Type": "application/json"}
+    })
+
+  } catch(err){
+    const error = 'Failed to fetch data'
+    throw error;
+  }
+}
+
+export {fetchRecentFilms, 
+  addUserFetch};
