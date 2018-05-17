@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { fetchUser } from "../../apiCall/apiCall";
+import {updateStoreUser} from './../../actions/index'
+import {connect} from 'react-redux'
 
-class UserLogin extends Component {
+export class UserLogin extends Component {
   constructor(props) {
     super(props);
 
@@ -22,11 +24,12 @@ class UserLogin extends Component {
     event.preventDefault();
     try {
       const response = await fetchUser(this.state)
+      // const userData = await response.json()
+      this.props.handleLogin(response.data)
       this.setState({
         email: "",
         password: ""
       })
-      // console.log(response.data)
     } catch(err) {
       const error = "Failed to grab user data";
       throw error
@@ -58,4 +61,8 @@ class UserLogin extends Component {
   }
 }
 
-export default UserLogin;
+export const mapDispatchToProps = (dispatch) => ({
+  handleLogin: (user) => dispatch(updateStoreUser(user))
+})
+
+export default connect(null, mapDispatchToProps)(UserLogin);

@@ -13,7 +13,7 @@ describe('addRecentFilms', () => {
   })
 })
 
-describe('addUserToStore', () => {
+describe('updateStoreUser', () => {
   it('has a type of ADD_USER', () => {
     const mockUser = {
         "id": 1,
@@ -21,7 +21,7 @@ describe('addUserToStore', () => {
         "password": "password",
         "email": "tman2272@aol.com"
     }
-    const actual = actions.addUserToStore(mockUser);
+    const actual = actions.updateStoreUser(mockUser);
 
     expect(actual).toEqual({
       type: "ADD_USER",
