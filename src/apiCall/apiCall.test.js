@@ -72,7 +72,7 @@ describe("apiCall", () => {
       };
 
       const expected = [
-        "localhost:3000/api/users/new",
+        "http://localhost:3000/api/users/new",
         {
           body: JSON.stringify({
             user: mockUser

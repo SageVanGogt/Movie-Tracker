@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import fetchFilmData from './../../apiCall/apiCall';
+import { fetchRecentFilms } from './../../apiCall/apiCall';
 import cleanFilmData from './../../helper/helper';
 import { connect } from 'react-redux';
 import { addRecentFilms } from './../../actions/index';
+import CreateNewUser from "./../CreateNewUser/CreateNewUser";
 import './App.css';
 
 export class App extends Component {
@@ -12,7 +13,7 @@ export class App extends Component {
   }
 
   async getRecentFilms() {
-    const recentFilms = await fetchFilmData();
+    const recentFilms = await fetchRecentFilms();
     const pageLoadFilms = cleanFilmData(recentFilms.results);
     this.props.handlePageLoadFilms(pageLoadFilms);
   }
@@ -20,7 +21,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-       HI
+       <CreateNewUser />
       </div>
     );
   }

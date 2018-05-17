@@ -36,7 +36,7 @@ class CreateNewUser extends Component {
 
   render() {
     return (
-      <form type="submit" onChange={this.handleSubmit}>
+      <form type="submit" onSubmit={this.handleSubmit}>
         <input
           type="text"
           value={this.state.name}
@@ -55,6 +55,9 @@ class CreateNewUser extends Component {
           name="password"
           onChange={this.handleChange}
         />
+         < input
+         type = "submit"
+         />
       </form>
     );
   }

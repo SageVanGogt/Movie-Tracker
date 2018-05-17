@@ -14,5 +14,4 @@ const cleanFilmData = (filmData) => {
   })
   return cleaned;
 }
-
 export default cleanFilmData;
