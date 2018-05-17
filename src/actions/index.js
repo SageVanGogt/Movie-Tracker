@@ -5,7 +5,7 @@ const addRecentFilms = (allFilms) => {
   }
 }
 
-const addUserToStore = (user) => {
+const updateStoreUser = (user) => {
   return {
     type: "ADD_USER",
     id: user.id,
@@ -15,5 +15,5 @@ const addUserToStore = (user) => {
 
 export {
   addRecentFilms,
-  addUserToStore
+  updateStoreUser
 }

@@ -1,14 +1,17 @@
-import UserLogin from "./UserLogin";
+import {UserLogin, mapDispatchToProps} from "./UserLogin";
 import React from "react";
 import { shallow } from "enzyme";
 import { fetchUser } from "./../../apiCall/apiCall";
+
 
 jest.mock('./../../apiCall/apiCall');
 
 describe("UserLogin", () => {
   let wrapper;
+  let mockHandleLogin;
   beforeEach(() => {
-    wrapper = shallow(<UserLogin />);
+    mockHandleLogin= jest.fn()
+    wrapper = shallow(<UserLogin handleLogin={mockHandleLogin} />);
   });
 
   it("has a default state", () => {
@@ -60,4 +63,48 @@ describe("UserLogin", () => {
     
     expect(fetchUser).toHaveBeenCalledWith(wrapper.state());
   });
+
+  describe('mapDispatchToProps', () => {
+    let wrapper;
+    let mockHandleSignIn;
+    beforeEach(() => {
+      mockHandleSignIn= jest.fn()
+      wrapper = shallow(<UserLogin handleSignIn={mockHandleSignIn} />);
+    });
+
+    it('should call dispatch with the correct params', () => {
+      const mockDispatch = jest.fn()
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockUser = {
+       id: 1,
+       name: "Doc"
+      }
+      const mockAction = {
+        type: 'ADD_USER',
+        id: 1,
+        name: "Doc"
+      }
+
+      // let mockEvent = {preventDefault: jest.fn()}
+      // Promise.resolve(wrapper.instance().handleSubmit(mockEvent))
+      
+
+      mappedProps.handleLogin(mockUser)
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+    })
+  });
 });
+
+
+// it('should call dispatch with the correct params', () => {
+//   const mockDispatch = jest.fn();
+//   const mappedProps = mapDispatchToProps(mockDispatch);
+//   const mockAction = {
+//     type: 'ADD_RECENT',
+//     films: mockCleanData
+//   }
+//   mappedProps.handlePageLoadFilms(mockCleanData);
+
+//   expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+// })
