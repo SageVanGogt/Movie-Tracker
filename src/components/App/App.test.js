@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 import { App, mapStateToProps, mapDispatchToProps } from './App';
 import mockCleanData from './../../mockData/mockCleanData';
 import mockData from './../../mockData/mockData';
-import fetchFilmData from './../../apiCall/apiCall';
+import {fetchFilmData} from './../../apiCall/apiCall';
 
 jest.mock('./../../apiCall/apiCall');
 describe('App', () => {

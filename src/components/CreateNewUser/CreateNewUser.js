@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { addUserFetch } from "../../apiCall/apiCall";
 
 class CreateNewUser extends Component {
   constructor(props) {
@@ -18,9 +19,19 @@ class CreateNewUser extends Component {
     })
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-
+    try {
+      await addUserFetch(this.state)
+      this.setState({
+        name: "",
+        email: "",
+        password: ""
+      })
+    } catch(err) {
+      const error = "Failed to submit user data";
+      throw error
+    }
   };
 
   render() {
