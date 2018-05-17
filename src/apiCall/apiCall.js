@@ -13,12 +13,14 @@ const fetchRecentFilms = async () => {
 }
 
 const addUserFetch = async (user) => {
-  const url = "localhost:3000/api/users/new"
+  const url = "http://localhost:3000/api/users/new"
   try {
-    const response = await fetch(url, {
+    await fetch(url, {
       method: "POST",
-      body: JSON.stringify({user}),
-      headers: {"Content-Type": "application/json"}
+      body: JSON.stringify(user),
+      headers: {
+        Accept: 'application/json',
+        "Content-Type": "application/json"}
     })
 
   } catch(err){
@@ -27,5 +29,28 @@ const addUserFetch = async (user) => {
   }
 }
 
-export {fetchRecentFilms, 
-  addUserFetch};
+const fetchUsers = async (user) => {
+  const  userBody = {
+    method: 'GET',
+    body: JSON.stringify({
+      email: user.email,
+      password: user.password
+    }),
+    headers: {"Content-Type": "application/json"}
+  }
+  const url = 'http://localhost:3000/api/users';
+  try {
+    const response = await fetch(url, userBody)
+    const userData = await response.json();
+    return userData;
+  } catch (err) {
+    const error = 'Failed to fetch data'
+    throw error;
+  }
+}
+
+export {
+  fetchRecentFilms, 
+  addUserFetch, 
+  fetchUsers
+};

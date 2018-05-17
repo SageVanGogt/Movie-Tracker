@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { addUserFetch } from "../../apiCall/apiCall";
+import { fetchUsers } from "../../apiCall/apiCall";
 
-class CreateNewUser extends Component {
+class UserLogin extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: "",
       email: "",
       password: ""
     };
@@ -22,9 +21,9 @@ class CreateNewUser extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await addUserFetch(this.state)
+      const response = await fetchUsers(this.state)
+      console.log(response)
       this.setState({
-        name: "",
         email: "",
         password: ""
       })
@@ -37,12 +36,6 @@ class CreateNewUser extends Component {
   render() {
     return (
       <form type="submit" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          value={this.state.name}
-          name="name"
-          onChange={this.handleChange}
-        />
         <input
           type="text"
           value={this.state.email}
@@ -63,4 +56,4 @@ class CreateNewUser extends Component {
   }
 }
 
-export default CreateNewUser
+export default UserLogin

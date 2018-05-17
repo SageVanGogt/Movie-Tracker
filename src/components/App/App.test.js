@@ -7,7 +7,7 @@ import mockData from './../../mockData/mockData';
 import {fetchFilmData} from './../../apiCall/apiCall';
 
 jest.mock('./../../apiCall/apiCall');
-describe('App', () => {
+describe.skip('App', () => {
   let wrapper;
 
   beforeEach(() => {
