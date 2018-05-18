@@ -1,10 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `
+exports[`Card should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Card />,
+  Symbol(enzyme.__unrendered__): <Card
+    id={1}
+    overview="a bunch of text about how bad this move is"
+    poster_path="www.theworstmovieever.com"
+    release_date={2014}
+    title="Fury"
+    vote_average={34}
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -18,16 +25,24 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <div />,
+        <div>
+          34
+</div>,
         <img
-          src={undefined}
+          src="www.theworstmovieever.com"
 />,
-        <h2 />,
-        <h4 />,
+        <h2>
+          Fury
+</h2>,
+        <h4>
+          2014
+</h4>,
         <div
           className="overview"
 >
-          <p />
+          <p>
+                    a bunch of text about how bad this move is
+          </p>
 </div>,
       ],
     },
@@ -38,10 +53,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": undefined,
+          "children": 34,
         },
         "ref": null,
-        "rendered": null,
+        "rendered": 34,
         "type": "div",
       },
       Object {
@@ -49,7 +64,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "src": undefined,
+          "src": "www.theworstmovieever.com",
         },
         "ref": null,
         "rendered": null,
@@ -60,10 +75,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": undefined,
+          "children": "Fury",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": "Fury",
         "type": "h2",
       },
       Object {
@@ -71,10 +86,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": undefined,
+          "children": 2014,
         },
         "ref": null,
-        "rendered": null,
+        "rendered": 2014,
         "type": "h4",
       },
       Object {
@@ -82,7 +97,9 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <p />,
+          "children": <p>
+            a bunch of text about how bad this move is
+</p>,
           "className": "overview",
         },
         "ref": null,
@@ -91,10 +108,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": undefined,
+            "children": "a bunch of text about how bad this move is",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "a bunch of text about how bad this move is",
           "type": "p",
         },
         "type": "div",
@@ -109,16 +126,24 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <div />,
+          <div>
+            34
+</div>,
           <img
-            src={undefined}
+            src="www.theworstmovieever.com"
 />,
-          <h2 />,
-          <h4 />,
+          <h2>
+            Fury
+</h2>,
+          <h4>
+            2014
+</h4>,
           <div
             className="overview"
 >
-            <p />
+            <p>
+                        a bunch of text about how bad this move is
+            </p>
 </div>,
         ],
       },
@@ -129,10 +154,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": undefined,
+            "children": 34,
           },
           "ref": null,
-          "rendered": null,
+          "rendered": 34,
           "type": "div",
         },
         Object {
@@ -140,7 +165,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "src": undefined,
+            "src": "www.theworstmovieever.com",
           },
           "ref": null,
           "rendered": null,
@@ -151,10 +176,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": undefined,
+            "children": "Fury",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "Fury",
           "type": "h2",
         },
         Object {
@@ -162,10 +187,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": undefined,
+            "children": 2014,
           },
           "ref": null,
-          "rendered": null,
+          "rendered": 2014,
           "type": "h4",
         },
         Object {
@@ -173,7 +198,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <p />,
+            "children": <p>
+              a bunch of text about how bad this move is
+</p>,
             "className": "overview",
           },
           "ref": null,
@@ -182,10 +209,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": undefined,
+              "children": "a bunch of text about how bad this move is",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "a bunch of text about how bad this move is",
             "type": "p",
           },
           "type": "div",
