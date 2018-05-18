@@ -30,7 +30,11 @@ export class App extends Component {
         <Switch>
           <Route 
             exact path="/login" 
-            component={Login}
+            render= {() => (
+              this.props.user.id ?
+              <Redirect to="/" /> :
+              <Login />
+            )}
           />
           <Route 
             exact path="/" 
