@@ -6,10 +6,13 @@ import {NavLink} from 'react-router-dom';
 const Nav = (props) => {
   return (
     <div>
-      <NavLink to="/login">Login/Sign up</NavLink>
-      <button
+      { props.user.id ? 
+        <button
         onClick={props.handleLogout}
-      >Sign Out</button>
+        >Sign Out</button>
+      :
+      <NavLink to="/login">Login/Sign up</NavLink>
+      }
     </div>
   )
 }
@@ -18,4 +21,8 @@ export const mapDispatchToProps = (dispatch) => ({
   handleLogout: () => dispatch(logOutUser())
 })
 
-export default connect(null, mapDispatchToProps)(Nav);
+export const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
