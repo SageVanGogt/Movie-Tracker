@@ -3,10 +3,11 @@ import { fetchRecentFilms } from './../../apiCall/apiCall';
 import cleanFilmData from './../../helper/helper';
 import { connect } from 'react-redux';
 import { addRecentFilms } from './../../actions/index';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
 import Login from '../Login/Login';
+import RecentMovies from '../RecentMovies/RecentMovies';
 
 export class App extends Component {
   
@@ -23,11 +24,21 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-       
-       <Login/>
-       <Nav />
+        <header> 
+          <Nav />
+        </header>
+        <Switch>
+          <Route 
+            exact path="/login" 
+            component={Login}
+          />
+          <Route 
+            exact path="/" 
+            component={RecentMovies}
+          />
+        </Switch>
 
-      </div>
+      </div> 
     );
   }
 }
@@ -40,4 +51,4 @@ export const mapStateToProps = (state) => ({
   user: state.user
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
