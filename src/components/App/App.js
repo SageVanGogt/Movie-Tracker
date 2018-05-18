@@ -3,11 +3,11 @@ import { fetchRecentFilms } from './../../apiCall/apiCall';
 import cleanFilmData from './../../helper/helper';
 import { connect } from 'react-redux';
 import { addRecentFilms } from './../../actions/index';
-import CreateNewUser from "./../CreateNewUser/CreateNewUser";
-import UserLogin from './../UserLogin/UserLogin';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
+import Login from '../Login/Login';
+import RecentMovies from '../RecentMovies/RecentMovies';
 
 export class App extends Component {
   
@@ -24,11 +24,21 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-       <UserLogin/>
-       <CreateNewUser />
-       <Nav />
+        <header> 
+          <Nav />
+        </header>
+        <Switch>
+          <Route 
+            exact path="/login" 
+            component={Login}
+          />
+          <Route 
+            exact path="/" 
+            component={RecentMovies}
+          />
+        </Switch>
 
-      </div>
+      </div> 
     );
   }
 }
@@ -37,4 +47,8 @@ export const mapDispatchToProps = (dispatch) => ({
   handlePageLoadFilms: (pageLoadFilms) => dispatch(addRecentFilms(pageLoadFilms))
 })
 
-export default connect(null, mapDispatchToProps)(App);
+export const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
