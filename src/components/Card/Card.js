@@ -18,6 +18,7 @@ const Card = props => {
       <div className="overview">
         <p>{overview}</p>
       </div>
+      <div type="button">Favorite</div>
     </div>
   );
 };
