@@ -2,7 +2,8 @@ import {
   fetchRecentFilms,
   addUserFetch,
   fetchUser,
-  postFavoriteToDb
+  postFavoriteToDb,
+  getUserFavorites
 } from "./apiCall";
 import mockData from "../mockData/mockData";
 import key from "./apiKey";
@@ -232,4 +233,57 @@ describe("apiCall", () => {
       await expect(postFavoriteToDb(mockFavorite)).rejects.toEqual("Failed to post favorite");
     });
   });  
+
+  describe('getUserFavorites', () => {
+   let mockFavorite;
+   let mockUser;
+
+    beforeEach(() => {
+      mockUser = {
+        user_id: 1
+      }
+      
+      mockFavorite = [{
+        id: 1,
+        user_id: 1,
+        movie_id: 214,
+        title: 'cat',
+        poster_path: 'catul',
+        release_date: 'catoo',
+        vote_average: 'cartt',
+        overview: 'catius'
+      }]
+      
+      window.fetch = jest.fn().mockImplementation(() =>
+          Promise.resolve({
+            status: 200,
+            json: () => Promise.resolve(mockFavorite)
+          }))
+      
+    })
+    it('should be called with the right params', async () => {
+      const userId = mockUser.user_id;
+      const url = `http://localhost:3000/users/${userId}/favorites`
+      
+      await getUserFavorites(userId);
+      expect(window.fetch).toHaveBeenCalledWith(url);
+    })
+
+    it('Should return an array', async () => {
+      const userId = mockUser.user_id;
+      const actual = await getUserFavorites(userId);
+      const expected = mockFavorite;
+
+      expect(actual).toEqual(expected);
+    })
+
+    it('should return an error message if status code is not ok', async () => {
+       window.fetch = jest.fn().mockImplementation(() =>
+         Promise.resolve({
+           status: 500
+         }));
+        
+        await expect(getUserFavorites(mockUser.user_id)).rejects.toEqual("Failed to get favorites")
+    })
+  })
 })
