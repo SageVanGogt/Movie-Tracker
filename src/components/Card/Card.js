@@ -1,8 +1,10 @@
 import React from "react";
+import { postFavoriteToDb } from './../../apiCall/apiCall';
+import { connect } from 'react-redux';
 
-const Card = props => {
+export const Card = props => {
   const {
-    id,
+    movie_id,
     vote_average,
     title,
     poster_path,
@@ -12,15 +14,19 @@ const Card = props => {
   return (
     <div>
       <div>{vote_average}</div>
-      <img src={poster_path} />
+      <img src={poster_path}/>
       <h2>{title}</h2>
       <h4>{release_date}</h4>
       <div className="overview">
         <p>{overview}</p>
       </div>
-      <div type="button">Favorite</div>
+      <div type="button" onClick={() => postFavoriteToDb(props, props.user)}>Favorite</div>
     </div>
   );
 };
 
-export default Card;
+export const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps, null)(Card);

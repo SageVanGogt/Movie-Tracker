@@ -6,12 +6,13 @@ import {NavLink} from 'react-router-dom';
 const Nav = (props) => {
   return (
     <div>
-      { props.user.id ? 
+      { 
+        props.user.user_id ? 
         <button
         onClick={props.handleLogout}
         >Sign Out</button>
-      :
-      <NavLink to="/login">Login/Sign up</NavLink>
+        :
+        <NavLink to="/login">Login/Sign up</NavLink>
       }
     </div>
   )

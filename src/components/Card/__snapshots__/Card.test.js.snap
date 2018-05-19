@@ -4,8 +4,8 @@ exports[`Card should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Card
-    id={1}
+  Symbol(enzyme.__unrendered__): <Unknown
+    film_id={1}
     overview="a bunch of text about how bad this move is"
     poster_path="www.theworstmovieever.com"
     release_date={2014}
@@ -43,6 +43,12 @@ ShallowWrapper {
           <p>
                     a bunch of text about how bad this move is
           </p>
+</div>,
+        <div
+          onClick={[Function]}
+          type="button"
+>
+          Favorite
 </div>,
       ],
     },
@@ -116,6 +122,19 @@ ShallowWrapper {
         },
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Favorite",
+          "onClick": [Function],
+          "type": "button",
+        },
+        "ref": null,
+        "rendered": "Favorite",
+        "type": "div",
+      },
     ],
     "type": "div",
   },
@@ -144,6 +163,12 @@ ShallowWrapper {
             <p>
                         a bunch of text about how bad this move is
             </p>
+</div>,
+          <div
+            onClick={[Function]}
+            type="button"
+>
+            Favorite
 </div>,
         ],
       },
@@ -215,6 +240,19 @@ ShallowWrapper {
             "rendered": "a bunch of text about how bad this move is",
             "type": "p",
           },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Favorite",
+            "onClick": [Function],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": "Favorite",
           "type": "div",
         },
       ],

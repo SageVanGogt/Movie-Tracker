@@ -8,7 +8,7 @@ const addRecentFilms = (allFilms) => {
 const updateStoreUser = (user) => {
   return {
     type: "ADD_USER",
-    id: user.id,
+    user_id: user.id,
     name: user.name
   }
 }

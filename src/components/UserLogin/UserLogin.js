@@ -24,7 +24,6 @@ export class UserLogin extends Component {
     event.preventDefault();
     try {
       const response = await fetchUser(this.state)
-      // const userData = await response.json()
       this.props.handleLogin(response.data)
       this.setState({
         email: "",

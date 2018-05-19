@@ -81,13 +81,9 @@ describe("UserLogin", () => {
       }
       const mockAction = {
         type: 'ADD_USER',
-        id: 1,
+        user_id: 1,
         name: "Doc"
       }
-
-      // let mockEvent = {preventDefault: jest.fn()}
-      // Promise.resolve(wrapper.instance().handleSubmit(mockEvent))
-      
 
       mappedProps.handleLogin(mockUser)
 
@@ -97,14 +93,3 @@ describe("UserLogin", () => {
 });
 
 
-// it('should call dispatch with the correct params', () => {
-//   const mockDispatch = jest.fn();
-//   const mappedProps = mapDispatchToProps(mockDispatch);
-//   const mockAction = {
-//     type: 'ADD_RECENT',
-//     films: mockCleanData
-//   }
-//   mappedProps.handlePageLoadFilms(mockCleanData);
-
-//   expect(mockDispatch).toHaveBeenCalledWith(mockAction)
-// })

@@ -31,7 +31,7 @@ export class App extends Component {
           <Route 
             exact path="/login" 
             render= {() => (
-              this.props.user.id ?
+              this.props.user.user_id ?
               <Redirect to="/" /> :
               <Login />
             )}
@@ -41,7 +41,6 @@ export class App extends Component {
             component={RecentMovies}
           />
         </Switch>
-
       </div> 
     );
   }
