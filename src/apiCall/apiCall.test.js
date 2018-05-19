@@ -263,7 +263,7 @@ describe("apiCall", () => {
     })
     it('should be called with the right params', async () => {
       const userId = mockUser.user_id;
-      const url = `http://localhost:3000/users/${userId}/favorites`
+      const url = `http://localhost:3000/api/users/${userId}/favorites`
       
       await getUserFavorites(userId);
       expect(window.fetch).toHaveBeenCalledWith(url);

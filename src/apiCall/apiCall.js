@@ -67,7 +67,7 @@ const postFavoriteToDb = async (favoriteInfo, user) => {
 }
 
 const getUserFavorites = async (userId) => {
-  const url = `http://localhost:3000/users/${userId}/favorites`;
+  const url = `http://localhost:3000/api/users/${userId}/favorites`;
   try{
   const response = await fetch(url);
   const favorites = await response.json();
