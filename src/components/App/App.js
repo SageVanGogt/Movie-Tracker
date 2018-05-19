@@ -8,6 +8,7 @@ import './App.css';
 import Nav from '../Nav/Nav';
 import Login from '../Login/Login';
 import RecentMovies from '../RecentMovies/RecentMovies';
+import Favorites from '../Favorites/Favorites';
 
 export class App extends Component {
   
@@ -40,6 +41,9 @@ export class App extends Component {
             exact path="/" 
             component={RecentMovies}
           />
+          <Route 
+            exact path="/favorites"
+            component={Favorites}/>
         </Switch>
       </div> 
     );
