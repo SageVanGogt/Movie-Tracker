@@ -1,6 +1,6 @@
 const mockCleanData = [
           {
-            "id": 245891,
+            "movie_id": 245891,
             "vote_average": 7,
             "title": "John Wick",
             "poster_path": "https://image.tmdb.org/t/p/w500/5vHssUeVe25bMrof1HyaPyWgaP.jpg",
@@ -8,7 +8,7 @@ const mockCleanData = [
             "release_date": "2014-10-22"
           },
           {
-            "id": 228150,
+            "movie_id": 228150,
             "vote_average": 7.4,
             "title": "Fury",
             "poster_path": "https://image.tmdb.org/t/p/w500/pfte7wdMobMF4CVHuOxyu6oqeeA.jpg",
@@ -16,7 +16,7 @@ const mockCleanData = [
             "release_date": "2014-10-15"
           },
           {
-            "id": 210577,
+            "movie_id": 210577,
             "vote_average": 7.9,
             "title": "Gone Girl",
             "poster_path": "https://image.tmdb.org/t/p/w500/gdiLTof3rbPDAmPaCf4g6op46bj.jpg",
@@ -24,7 +24,7 @@ const mockCleanData = [
             "release_date": "2014-10-01"
           },
           {
-            "id": 156022,
+            "movie_id": 156022,
             "vote_average": 7.1,
             "title": "The Equalizer",
             "poster_path": "https://image.tmdb.org/t/p/w500/2eQfjqlvPAxd9aLDs8DvsKLnfed.jpg",

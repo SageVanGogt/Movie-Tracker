@@ -25,7 +25,7 @@ describe('updateStoreUser', () => {
 
     expect(actual).toEqual({
       type: "ADD_USER",
-      id: mockUser.id,
+      user_id: mockUser.id,
       name: mockUser.name
     })
   })

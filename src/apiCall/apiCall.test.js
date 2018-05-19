@@ -1,7 +1,8 @@
 import {
   fetchRecentFilms,
   addUserFetch,
-  fetchUser
+  fetchUser,
+  postFavoriteToDb
 } from "./apiCall";
 import mockData from "../mockData/mockData";
 import key from "./apiKey";
@@ -168,4 +169,67 @@ describe("apiCall", () => {
       await expect(fetchUser(mockUser)).rejects.toEqual('Failed to fetch data');
     });
   });
-});
+
+  describe("postFavoriteToDb", () => {
+    let mockMovie;
+    let mockUser;
+    let mockFavorite;
+
+    beforeEach(() => {
+      mockMovie = {
+        film_id: 214, 
+        title: 'cat', 
+        poster_path: 'catul', 
+        release_date: 'catoo', 
+        vote_average: 'cartt', 
+        overview: 'catius'
+      }
+      mockFavorite= {
+        id: 1,
+        film_id: 214, 
+        title: 'cat', 
+        poster_path: 'catul', 
+        release_date: 'catoo', 
+        vote_average: 'cartt', 
+        overview: 'catius'
+      }
+      mockUser = {
+        name: 'beth',
+        id: 1
+      }
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(mockFavorite)
+        })
+      );
+    });
+
+    it("calls fetch with the correct data when adding a new user", async () => {
+      const expected = [
+        "http://localhost:3000/api/users/favorites/new",
+        {
+          body: JSON.stringify({id: mockUser.id, ...mockMovie}),
+          headers: {
+            Accept: 'application/json', 
+            "Content-Type": "application/json"
+          },
+          method: "POST"
+        }
+      ];
+
+      await postFavoriteToDb(mockFavorite, mockUser);
+
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    });
+
+    it.skip("sets an error when the fetch fails", async () => {
+      window.fetch = jest.fn().mockImplementation(() =>
+        Promise.resolve({
+          status: 500
+        }));
+
+      await expect(postFavoriteToDb(mockFavorite)).rejects.toEqual("Failed to post favorite");
+    });
+  });  
+})

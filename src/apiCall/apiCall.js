@@ -48,8 +48,27 @@ const fetchUser = async (user) => {
   }
 }
 
+const postFavoriteToDb = async (favoriteInfo, user) => {
+  const url = "http://localhost:3000/api/users/favorites/new";
+  const postData = {
+    method: 'POST',
+    body: JSON.stringify({user_id: user.user_id, ...favoriteInfo}),
+    headers: {
+      Accept: 'application/json',
+      "Content-Type": "application/json"
+    }
+  }
+  try {
+    await fetch(url, postData);
+  } catch(err) {
+    const error = "Failed to post favorite";
+    throw error;
+  }
+}
+
 export {
   fetchRecentFilms, 
   addUserFetch, 
-  fetchUser
+  fetchUser,
+  postFavoriteToDb
 };

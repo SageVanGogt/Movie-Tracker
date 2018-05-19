@@ -1,6 +1,6 @@
 import React from 'react';
-import {connect} from "react-redux"
-import Card from './../Card/Card'
+import { connect } from "react-redux";
+import Card from './../Card/Card';
 
 const RecentMovies = (props) => {
   const {user, films} = props
