@@ -1,5 +1,5 @@
 import React from "react";
-import { postFavoriteToDb } from './../../apiCall/apiCall';
+import { postFavoriteToDb, removeFavorite } from './../../apiCall/apiCall';
 import { connect } from 'react-redux';
 
 export const Card = props => {
@@ -23,6 +23,10 @@ export const Card = props => {
         <p>{overview}</p>
       </div>
       <div type="button" onClick={() => postFavoriteToDb(props, props.user)}>Favorite</div>
+      <div type = "button"
+      onClick = {
+        () => removeFavorite({user_id: props.user_id,  movie_id })
+      } > Remove Favorite </div>
     </div>
   );
 };
