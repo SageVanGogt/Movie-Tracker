@@ -79,18 +79,12 @@ const getUserFavorites = async (userId) => {
 }
 
 const removeFavorite = async (favorite) => {
-  debugger
   const url = `http://localhost:3000/api/users/${favorite.user_id}/favorites/${favorite.movie_id}`
   try{
     const response = await fetch(url, {
-      method: 'DELETE',
-      headers: {
-        "Content-Type": "application/json",
-        },
-      body: JSON.stringify(favorite)
-
+      method: 'DELETE'
     })
-    const data = await response.json();
+
   } catch(err) {
     const error = "Failed to remove favorite";
     throw error;

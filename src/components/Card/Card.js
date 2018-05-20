@@ -25,16 +25,14 @@ export const Card = props => {
       <div type="button" onClick={() => postFavoriteToDb(props, props.user)}>Favorite</div>
       <div type = "button"
       onClick = {
-        () => removeFavorite({user_id: props.user_id,  movie_id })
+        () => removeFavorite({user_id: props.user.user_id,  movie_id })
       } > Remove Favorite </div>
     </div>
   );
 };
 
-// export const mapStateToProps = (state) => ({
-//   user: state.user
-// })
+export const mapStateToProps = (state) => ({
+  user: state.user
+})
 
-// export default connect(mapStateToProps, null)(Card);
-
-export default Card
+export default connect(mapStateToProps, null)(Card);
