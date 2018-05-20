@@ -11,6 +11,8 @@ export const Card = props => {
     overview,
     release_date
   } = props;
+  
+
   return (
     <div>
       <div>{vote_average}</div>
@@ -25,8 +27,10 @@ export const Card = props => {
   );
 };
 
-export const mapStateToProps = (state) => ({
-  user: state.user
-})
+// export const mapStateToProps = (state) => ({
+//   user: state.user
+// })
 
-export default connect(mapStateToProps, null)(Card);
+// export default connect(mapStateToProps, null)(Card);
+
+export default Card

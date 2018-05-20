@@ -2,24 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from '../../components/Card/Card';
 import { getUserFavorites } from '../../apiCall/apiCall';
+import { addFavoritesToStore } from './../../actions/index'
 
 class Favorites extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      favorites: []
-    }
+    // this.state = {
+    //   favorites: []
+    // }
   }
 
   componentDidMount() {
-    this.populateFavorites();
+    this.getFavorites();
   }
 
-  populateFavorites = async () => {
+  getFavorites = async () => {
     const favorites = await getUserFavorites(this.props.user.user_id);
-    this.setState({
-      favorites
-    })
+    this.props.populateFavorites(favorites.data)
   }
 
   render() {
@@ -33,4 +32,7 @@ export const mapStateToProps = (state) => ({
   user: state.user
 })
 
-export default connect(mapStateToProps, null)(Favorites);
+export const mapDispatchToProps = (dispatch) => ({
+  populateFavorites: (movies) => dispatch(addFavoritesToStore(movies))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

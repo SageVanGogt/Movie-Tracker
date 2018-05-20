@@ -41,5 +41,18 @@ describe('logOutUser', () => {
     });
   })
 
+  describe('addFavoritesToStore', () => {
+    it('should return an object with the type "ADD_FAVORITES', () => {
+      const mockFavorites = [{}, {}]
+      const actual = actions.addFavoritesToStore(mockFavorites)
+      const expected = {
+        type: "ADD_FAVORITES",
+        favorites: [{}, {}]
+      }
+
+
+      expect(actual).toEqual(expected)
+    });
+  });
 
 })
