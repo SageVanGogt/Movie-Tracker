@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { fetchUser } from "../../apiCall/apiCall";
-import {updateStoreUser} from './../../actions/index'
-import {connect} from 'react-redux'
+import { updateStoreUser } from './../../actions/index'
+import { connect } from 'react-redux'
 
 export class UserLogin extends Component {
   constructor(props) {

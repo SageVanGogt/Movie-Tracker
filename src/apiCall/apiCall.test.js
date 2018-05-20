@@ -94,7 +94,7 @@ describe("apiCall", () => {
       expect(window.fetch).toHaveBeenCalledWith(...expected);
     });
 
-    it.skip("sets an error when the fetch fails", async () => {
+    it("sets an error when the fetch fails", async () => {
       window.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
           status: 500
@@ -186,7 +186,7 @@ describe("apiCall", () => {
         overview: 'catius'
       }
       mockFavorite= {
-        id: 1,
+        user_id: 1,
         film_id: 214, 
         title: 'cat', 
         poster_path: 'catul', 
@@ -196,7 +196,7 @@ describe("apiCall", () => {
       }
       mockUser = {
         name: 'beth',
-        id: 1
+        user_id: 1
       }
       window.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
@@ -210,7 +210,7 @@ describe("apiCall", () => {
       const expected = [
         "http://localhost:3000/api/users/favorites/new",
         {
-          body: JSON.stringify({id: mockUser.id, ...mockMovie}),
+          body: JSON.stringify({user_id: mockUser.user_id, ...mockMovie}),
           headers: {
             Accept: 'application/json', 
             "Content-Type": "application/json"
@@ -230,7 +230,7 @@ describe("apiCall", () => {
           status: 500
         }));
 
-      await expect(postFavoriteToDb(mockFavorite)).rejects.toEqual("Failed to post favorite");
+      await expect(postFavoriteToDb(mockMovie, mockUser)).rejects.toEqual("Failed to post favorite");
     });
   });  
 

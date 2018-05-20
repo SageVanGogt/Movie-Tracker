@@ -6,7 +6,7 @@ import { addRecentFilms } from './../../actions/index';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
-import Login from '../Login/Login';
+import Login from '../../components/Login/Login';
 import RecentMovies from '../RecentMovies/RecentMovies';
 import Favorites from '../Favorites/Favorites';
 
