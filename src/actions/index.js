@@ -36,7 +36,7 @@ const removeFavoriteFromStore = (movieId) => {
 const addFavoriteToStore = (favorite) => {
   return {
     type: 'ADD_ONE_FAVORITE',
-    ...favorite
+    favorite
   }
 }
 

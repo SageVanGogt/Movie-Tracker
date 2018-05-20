@@ -25,4 +25,16 @@ describe('addFavoritesReducer', () => {
 
     expect(actual).toEqual(expected)
   })
+
+  it('should add a favorite to the favorites array', () => {
+    const mockState = [{movie_id: 2 }, { movie_id: 3526}]
+    const mockFavorite = {movie_id: 23}
+    const mockAction = {
+      type: 'ADD_ONE_FAVORITE',
+      favorite: mockFavorite
+    }
+    const expected = [{movie_id: 2 }, {movie_id: 3526}, {movie_id: 23}];
+    const actual = addFavoritesReducer(mockState, mockAction);
+    expect(actual).toEqual(expected);
+  })
 });

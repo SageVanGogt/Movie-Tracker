@@ -76,7 +76,7 @@ describe('logOutUser', () => {
       } 
       const expected = {
         type: 'ADD_ONE_FAVORITE',
-        ...mockFavorite
+        favorite: mockFavorite
       }
       const actual = actions.addFavoriteToStore(mockFavorite);
       expect(actual).toEqual(expected);
