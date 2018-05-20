@@ -6,7 +6,7 @@ const RecentMovies = (props) => {
   const {user, films} = props
   const allMovies = films.map(film => {
     return (
-      <Card {...film}/>
+      <Card {...film} user={user} key={film.movie_id}/>
     )
   })
   return (
