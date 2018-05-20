@@ -69,4 +69,18 @@ describe('logOutUser', () => {
     })
   })
 
+  describe('addFavoriteToStore', () => {
+    it('should return an object with type ADD_ONE_FAVORITE', () => {
+      const mockFavorite = {
+        movie_id: 10, 
+      } 
+      const expected = {
+        type: 'ADD_ONE_FAVORITE',
+        ...mockFavorite
+      }
+      const actual = actions.addFavoriteToStore(mockFavorite);
+      expect(actual).toEqual(expected);
+    })
+  })
+
 })
