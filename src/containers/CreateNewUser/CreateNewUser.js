@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { addUserFetch } from "../../apiCall/apiCall";
+import { connect } from 'react-redux'
+import { updateStoreUser } from './../../actions/index'
 
-class CreateNewUser extends Component {
+export class CreateNewUser extends Component {
   constructor(props) {
     super(props);
 
@@ -22,17 +24,23 @@ class CreateNewUser extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await addUserFetch(this.state)
-      this.setState({
-        name: "",
-        email: "",
-        password: ""
-      })
+      const response = await addUserFetch(this.state)
+
+      // this.setState({
+      //   name: "",
+      //   email: "",
+      //   password: ""
+      // })
+      this.updateUser(response)
     } catch(err) {
       const error = "Failed to submit user data";
       throw error
     }
   };
+  
+  updateUser = (user) => {
+    this.props.handleSignup(user)
+  }
 
   render() {
     return (
@@ -66,4 +74,8 @@ class CreateNewUser extends Component {
   }
 }
 
-export default CreateNewUser
+export const mapDispatchToProps = (dispatch) => ({
+  handleSignup:(user) => dispatch(updateStoreUser(user))
+})
+
+export default connect(null, mapDispatchToProps)(CreateNewUser)

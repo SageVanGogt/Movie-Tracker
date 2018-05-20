@@ -1,4 +1,4 @@
-import CreateNewUser from "./CreateNewUser";
+import { CreateNewUser, mapDispatchToProps } from "./CreateNewUser";
 import React from "react";
 import { shallow } from "enzyme";
 import { addUserFetch } from "./../../apiCall/apiCall";
@@ -63,5 +63,26 @@ describe("CreateNewUser", () => {
     Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
     
     expect(addUserFetch).toHaveBeenCalledWith(wrapper.state());  
+  });
+
+  describe('mapDispatchtoProps', () => {
+    it('should be called with the correct params', () => {
+      const mockDispatch = jest.fn()
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockAction = {
+        type: "ADD_USER",
+        user_id: 1,
+        name: "doc",  
+      }
+
+      const mockUser = {
+        id: 1,
+        name: 'doc'
+      }
+
+      mappedProps.handleSignup(mockUser)
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+    });
   });
 });
