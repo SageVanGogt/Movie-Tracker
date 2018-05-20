@@ -19,9 +19,17 @@ const logOutUser = () => {
   }
 }
 
+const addFavoritesToStore = (movies) => {
+  return {
+    type: "ADD_FAVORITES",
+    favorites: movies
+  }
+}
+
 export {
   addRecentFilms,
   updateStoreUser,
-  logOutUser
+  logOutUser,
+  addFavoritesToStore
 }
 

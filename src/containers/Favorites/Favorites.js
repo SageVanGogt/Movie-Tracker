@@ -29,6 +29,8 @@ class Favorites extends Component {
   } 
 }
 
+
+
 export const mapStateToProps = (state) => ({
   user: state.user
 })

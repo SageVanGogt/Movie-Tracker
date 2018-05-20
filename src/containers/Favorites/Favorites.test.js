@@ -6,7 +6,7 @@ describe('Favorites', () => {
   describe('mapStateToProps', () => {
     it('should map user to props', () => {
       const mockState = {
-        user: {
+        user: {   
           user_id: 1,
           name: 'Sup Dude'
         },
