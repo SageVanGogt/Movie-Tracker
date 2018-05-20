@@ -50,6 +50,12 @@ ShallowWrapper {
 >
           Favorite
 </div>,
+        <div
+          onClick={[Function]}
+          type="button"
+>
+           Remove Favorite 
+</div>,
       ],
     },
     "ref": null,
@@ -135,6 +141,19 @@ ShallowWrapper {
         "rendered": "Favorite",
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": " Remove Favorite ",
+          "onClick": [Function],
+          "type": "button",
+        },
+        "ref": null,
+        "rendered": " Remove Favorite ",
+        "type": "div",
+      },
     ],
     "type": "div",
   },
@@ -169,6 +188,12 @@ ShallowWrapper {
             type="button"
 >
             Favorite
+</div>,
+          <div
+            onClick={[Function]}
+            type="button"
+>
+             Remove Favorite 
 </div>,
         ],
       },
@@ -253,6 +278,19 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": "Favorite",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": " Remove Favorite ",
+            "onClick": [Function],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": " Remove Favorite ",
           "type": "div",
         },
       ],

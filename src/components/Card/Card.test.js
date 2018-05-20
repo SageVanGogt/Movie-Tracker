@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { mapStateToProps, Card } from './Card';
+import { mapStateToProps, mapDispatchToProps, Card } from './Card';
 
 describe('Card', () => {
   it('should match the snapshot', () => {
@@ -27,6 +27,19 @@ describe('Card', () => {
       let expected = {user: {id: 1, name: 'lisa'}};
 
       expect(mappedProps).toEqual(expected);
+    })
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the correct params', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockAction = {type: 'REMOVE_FAVORITE', movie_id: 45}
+      const mockArg = 45
+
+      mappedProps.handleRemoveFavorite(mockArg)
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     })
   })
 });
