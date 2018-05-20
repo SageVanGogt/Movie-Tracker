@@ -26,10 +26,18 @@ const addFavoritesToStore = (movies) => {
   }
 }
 
+const removeFavoriteFromStore = (movieId) => {
+  return {
+    type: "REMOVE_FAVORITE",
+    movie_id: movieId
+  }
+}
+
 export {
   addRecentFilms,
   updateStoreUser,
   logOutUser,
-  addFavoritesToStore
+  addFavoritesToStore,
+  removeFavoriteFromStore
 }
 

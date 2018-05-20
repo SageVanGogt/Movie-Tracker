@@ -78,11 +78,24 @@ const getUserFavorites = async (userId) => {
   }
 }
 
+const removeFavorite = async (favorite) => {
+  const url = `http://localhost:3000/api/users/${favorite.user_id}/favorites/${favorite.movie_id}`
+  try{
+    const response = await fetch(url, {
+      method: 'DELETE'
+    })
+  } catch(err) {
+    const error = "Failed to remove favorite";
+    throw error;
+  }
+}
+
 
 export {
   fetchRecentFilms, 
   addUserFetch, 
   fetchUser,
   postFavoriteToDb,
-  getUserFavorites
+  getUserFavorites,
+  removeFavorite
 };

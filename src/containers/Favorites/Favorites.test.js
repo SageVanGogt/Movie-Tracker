@@ -10,13 +10,16 @@ describe('Favorites', () => {
           user_id: 1,
           name: 'Sup Dude'
         },
-        films: []
+        films: [],
+        favorites: [{},{}]
       }
       const expected = {
         user: {
         user_id: 1,
         name: 'Sup Dude'
-      }}
+        }, 
+        favorites: [{},{}]
+      }
       const mappedProps = mapStateToProps(mockState);
 
       expect(mappedProps).toEqual(expected);

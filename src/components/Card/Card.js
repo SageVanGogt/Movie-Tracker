@@ -1,6 +1,7 @@
 import React from "react";
-import { postFavoriteToDb } from './../../apiCall/apiCall';
+import { postFavoriteToDb, removeFavorite } from './../../apiCall/apiCall';
 import { connect } from 'react-redux';
+import {removeFavoriteFromStore} from '../../actions/index';
 
 export const Card = props => {
   const {
@@ -12,6 +13,14 @@ export const Card = props => {
     release_date
   } = props;
   
+  const handleDeleteClick = () => {
+    removeFavorite({
+          user_id: props.user.user_id,
+          movie_id
+        })
+    props.handleRemoveFavorite(movie_id)
+      
+  }
 
   return (
     <div>
@@ -23,14 +32,20 @@ export const Card = props => {
         <p>{overview}</p>
       </div>
       <div type="button" onClick={() => postFavoriteToDb(props, props.user)}>Favorite</div>
+      <div type = "button"
+      onClick = {
+        () => handleDeleteClick()
+      } > Remove Favorite </div>
     </div>
   );
 };
 
-// export const mapStateToProps = (state) => ({
-//   user: state.user
-// })
+export const mapStateToProps = (state) => ({
+  user: state.user
+})
 
-// export default connect(mapStateToProps, null)(Card);
+export const mapDispatchToProps = (dispatch) => ({
+  handleRemoveFavorite: (movieId) => dispatch(removeFavoriteFromStore(movieId))
+})
 
-export default Card
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

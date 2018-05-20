@@ -3,7 +3,8 @@ import {
   addUserFetch,
   fetchUser,
   postFavoriteToDb,
-  getUserFavorites
+  getUserFavorites,
+  removeFavorite
 } from "./apiCall";
 import mockData from "../mockData/mockData";
 import key from "./apiKey";
@@ -284,6 +285,25 @@ describe("apiCall", () => {
          }));
         
         await expect(getUserFavorites(mockUser.user_id)).rejects.toEqual("Failed to get favorites")
+    })
+  })
+  describe('removeFavorite', () => {
+    let mockArg;
+    let mockRemove;
+    beforeEach(() => {
+      mockArg = {user_id: 1, movie_id: 3241};
+      mockRemove = {method: 'DELETE'}
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200
+      }))
+    })
+
+    it('should be called with the correct params', async () => {
+      const url = `http://localhost:3000/api/users/${mockArg.user_id}/favorites/${mockArg.movie_id}`
+      await removeFavorite(mockArg);
+      expect(window.fetch).toHaveBeenCalledWith(url, mockRemove);
+
     })
   })
 })
