@@ -1,6 +1,6 @@
 import React from 'react';
-import CreateNewUser from '../CreateNewUser/CreateNewUser';
-import UserLogin from '../UserLogin/UserLogin';
+import CreateNewUser from '../../containers/CreateNewUser/CreateNewUser';
+import UserLogin from '../../containers/UserLogin/UserLogin';
 
 const Login = (props) => {
   return (
@@ -9,7 +9,6 @@ const Login = (props) => {
       <UserLogin />
     </div>
   )
-
 }
 
 export default Login;
