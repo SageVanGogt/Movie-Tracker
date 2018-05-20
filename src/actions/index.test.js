@@ -55,4 +55,18 @@ describe('logOutUser', () => {
     });
   });
 
+  describe('removeFavoriteFromStore', () => {
+    it('Return an object with the type REMOVE_FAVORITE', () => {
+      const mockFavorite = 666
+      const actual = actions.removeFavoriteFromStore(mockFavorite)
+      const expected = {
+        type: 'REMOVE_FAVORITE',
+        movie_id: mockFavorite
+      }
+
+      expect(actual).toEqual(expected);
+      
+    })
+  })
+
 })

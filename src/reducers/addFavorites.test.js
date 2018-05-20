@@ -13,4 +13,16 @@ describe('addFavoritesReducer', () => {
 
     expect(actual).toEqual(mockState)
   });
+
+  it('should filter favorites and return objects the dont match id', () => {
+    const mockState = [{movie_id: 23 }, { movie_id: 3526}]
+    const mockAction = {
+      type: 'REMOVE_FAVORITE',
+      movie_id: 23
+    }
+    const expected = [{movie_id: 3526}]
+    const actual = addFavoritesReducer(mockState, mockAction)
+
+    expect(actual).toEqual(expected)
+  })
 });

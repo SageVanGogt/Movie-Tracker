@@ -84,7 +84,6 @@ const removeFavorite = async (favorite) => {
     const response = await fetch(url, {
       method: 'DELETE'
     })
-
   } catch(err) {
     const error = "Failed to remove favorite";
     throw error;
