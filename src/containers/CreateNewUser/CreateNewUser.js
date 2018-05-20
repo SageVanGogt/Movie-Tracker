@@ -25,22 +25,12 @@ export class CreateNewUser extends Component {
     event.preventDefault();
     try {
       const response = await addUserFetch(this.state)
-
-      // this.setState({
-      //   name: "",
-      //   email: "",
-      //   password: ""
-      // })
-      this.updateUser(response)
+      this.props.handleSignup({id:response.id, name:this.state.name})
     } catch(err) {
       const error = "Failed to submit user data";
       throw error
     }
   };
-  
-  updateUser = (user) => {
-    this.props.handleSignup(user)
-  }
 
   render() {
     return (
