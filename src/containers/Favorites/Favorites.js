@@ -5,7 +5,7 @@ import { getUserFavorites } from '../../apiCall/apiCall';
 import { addFavoritesToStore } from './../../actions/index';
 import './Favorites.css';
 
-class Favorites extends Component {
+export class Favorites extends Component {
   constructor(props) {
     super(props);
   }
@@ -23,7 +23,6 @@ class Favorites extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  user: state.user,
   favorites: state.favorites
 })
 

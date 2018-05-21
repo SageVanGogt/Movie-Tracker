@@ -1,8 +1,20 @@
 import React from 'react';
 import { Nav, mapDispatchToProps, mapStateToProps } from './Nav';
-
+import {shallow} from 'enzyme'
 
 describe('Nav', () => {
+
+  it('should match the snapshot', () => {
+    let mockProps = {
+      user:{
+        user_id:1
+      }
+    }
+    let wrapper = shallow(<Nav {...mockProps} />)
+
+    expect(wrapper).toMatchSnapshot()
+  })
+
   describe('mapDispatchToProps', () => {
     it('should call dispatch with the correct params', () => {
       const mockDispatch = jest.fn();

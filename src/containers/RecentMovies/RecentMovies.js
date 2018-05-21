@@ -4,11 +4,15 @@ import Card from './../../components/Card/Card';
 import PropTypes from 'prop-types';
 import './RecentMovies.css'
 
-const RecentMovies = (props) => {
+export const RecentMovies = (props) => {
   const {user, films} = props
   const allMovies = films.map(film => {
     return (
-      <Card {...film} user={user} key={film.movie_id}/>
+      <Card 
+        {...film} 
+        user={user} 
+        key={film.movie_id}
+      />
     )
   })
   return (

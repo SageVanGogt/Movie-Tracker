@@ -4,7 +4,15 @@ import {shallow} from 'enzyme'
 
 describe('RecentMovies', () => {
   it('should match the snapshot', ()=> {
+    let mockProps = {
+      films:[{movie_id:1}, {movie_id:2}, {movie_id:3}],
+      user:{
+        user_id:1
+      }
+    }
+    let wrapper = shallow(<RecentMovies {...mockProps}/>)
 
+    expect(wrapper).toMatchSnapshot()
   })
 
   describe('mapStateToProps', () => {

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './Nav.css';
 
 
-const Nav = (props) => {
+export const Nav = (props) => {
   return (
     <div className="nav-bar">
       <NavLink to="/favorites">Favorites</NavLink>
