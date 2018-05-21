@@ -1,0 +1,10 @@
+.login-page {
+  padding-top: 150px;
+  width: 50vw;
+  height: 50vh;
+  background-color: rgb(209, 209, 209);
+  margin: auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

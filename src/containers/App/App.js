@@ -9,6 +9,7 @@ import Nav from '../Nav/Nav';
 import Login from '../../components/Login/Login';
 import RecentMovies from '../RecentMovies/RecentMovies';
 import Favorites from '../Favorites/Favorites';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   
@@ -57,5 +58,10 @@ export const mapDispatchToProps = (dispatch) => ({
 export const mapStateToProps = (state) => ({
   user: state.user
 })
+
+App.propTypes = {
+  handlePageLoadFilms: PropTypes.func,
+  user: PropTypes.object
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

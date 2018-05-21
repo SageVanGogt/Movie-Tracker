@@ -2,6 +2,7 @@ import React from "react";
 import { postFavoriteToDb, removeFavorite } from './../../apiCall/apiCall';
 import { connect } from 'react-redux';
 import { removeFavoriteFromStore, addFavoriteToStore } from '../../actions/index';
+import PropTypes from 'prop-types';
 import './Card.css'
 
 export const Card = props => {
@@ -71,5 +72,17 @@ export const mapDispatchToProps = (dispatch) => ({
   handleRemoveFavorite: (movieId) => dispatch(removeFavoriteFromStore(movieId)),
   handleAddFavorite: (favorite) => dispatch(addFavoriteToStore(favorite))
 })
+
+Card.propTypes = {
+   movie_id: PropTypes.number,
+   vote_average: PropTypes.number,
+   title: PropTypes.string,
+   poster_path: PropTypes.string,
+   overview: PropTypes.string,
+   release_date: PropTypes.number,
+   handleAddFavorite: PropTypes.func,
+   handleRemoveFavorite: PropTypes.func,
+   user: PropTypes.object
+  }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { fetchUser, getUserFavorites } from "../../apiCall/apiCall";
 import { updateStoreUser, addFavoritesToStore } from './../../actions/index'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import './UserLogin.css';
 
 export class UserLogin extends Component {
   constructor(props) {
@@ -66,5 +68,10 @@ export const mapDispatchToProps = (dispatch) => ({
   handleLogin: (user) => dispatch(updateStoreUser(user)),
   populateFavorites: (movies) => dispatch(addFavoritesToStore(movies))  
 })
+
+UserLogin.propTypes = {
+  handleLogin: PropTypes.func,
+  populateFavorites: PropTypes.func
+}
 
 export default connect(null, mapDispatchToProps)(UserLogin);

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { addUserFetch } from "../../apiCall/apiCall";
 import { connect } from 'react-redux'
-import { updateStoreUser } from './../../actions/index'
+import { updateStoreUser } from './../../actions/index';
+import PropTypes from 'prop-types';
 
 export class CreateNewUser extends Component {
   constructor(props) {
@@ -67,5 +68,10 @@ export class CreateNewUser extends Component {
 export const mapDispatchToProps = (dispatch) => ({
   handleSignup:(user) => dispatch(updateStoreUser(user))
 })
+
+CreateNewUser.propTypes = {
+  handleSignup: PropTypes.func,
+  user: PropTypes.object
+}
 
 export default connect(null, mapDispatchToProps)(CreateNewUser)
