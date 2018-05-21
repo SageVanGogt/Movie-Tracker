@@ -5,7 +5,6 @@ import { App, mapStateToProps, mapDispatchToProps } from './App';
 import mockCleanData from './../../mockData/mockCleanData';
 import mockData from './../../mockData/mockData';
 import { fetchRecentFilms } from './../../apiCall/apiCall';
-// import cleanFilmData from './../../helper/helper';
 
 jest.mock('./../../apiCall/apiCall');
 describe('App', () => {
@@ -17,6 +16,10 @@ describe('App', () => {
     wrapper = shallow(<App
       handlePageLoadFilms={mockHandlePageLoadFilms}
     />, { disableLifeCycleMethods: true });
+  })
+
+  it('should match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('getRecentFilms should call fetchRecentFilms on pageload', async () => {
