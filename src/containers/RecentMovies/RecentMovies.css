@@ -1,4 +1,5 @@
 .movies-container {
+  padding-top: 120px;
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
