@@ -1,9 +1,7 @@
 import mockData from './../../mockData/mockData';
 const fetchRecentFilms = jest.fn().mockImplementation(() => Promise.resolve(mockData))
 const addUserFetch = jest.fn().mockImplementation(() => Promise.resolve({
-    name: "",
-    email: "great",
-    password: ""
+    "id": 1,
 }))
 const fetchUser = jest.fn().mockImplementation(() => Promise.resolve({
     data:{
