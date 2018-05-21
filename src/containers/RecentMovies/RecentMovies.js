@@ -10,7 +10,7 @@ const RecentMovies = (props) => {
     )
   })
   return (
-    <div>
+    < div className="movies-container" >
       {allMovies}
     </div>
   )
