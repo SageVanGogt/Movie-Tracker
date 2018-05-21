@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { fetchRecentFilms } from './../../apiCall/apiCall';
+import { fetchRecentFilms, getUserFavorites } from './../../apiCall/apiCall';
 import cleanFilmData from './../../helper/helper';
 import { connect } from 'react-redux';
-import { addRecentFilms } from './../../actions/index';
+import { addRecentFilms, addFavoritesToStore } from './../../actions/index';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
@@ -22,7 +22,15 @@ export class App extends Component {
     this.props.handlePageLoadFilms(pageLoadFilms);
   }
 
+  getFavorites = async () => {
+    if (this.props.user.name) {
+      const favorites = await getUserFavorites(this.props.user.user_id);
+      this.props.populateFavorites(favorites.data)
+    }
+  }
+
   render() {
+    {this.getFavorites()}
     return (
       <div className="App">
         <header> 
@@ -51,7 +59,8 @@ export class App extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  handlePageLoadFilms: (pageLoadFilms) => dispatch(addRecentFilms(pageLoadFilms))
+  handlePageLoadFilms: (pageLoadFilms) => dispatch(addRecentFilms(pageLoadFilms)),
+  populateFavorites: (movies) => dispatch(addFavoritesToStore(movies))
 })
 
 export const mapStateToProps = (state) => ({

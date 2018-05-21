@@ -9,15 +9,6 @@ class Favorites extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.getFavorites();
-  }
-
-  getFavorites = async () => {
-    const favorites = await getUserFavorites(this.props.user.user_id);
-    this.props.populateFavorites(favorites.data)
-  }
-
   render() {
     const allFavorites = this.props.favorites.map(favorite => {
       return (<Card {...favorite} key={favorite.id}/>)
@@ -35,7 +26,4 @@ export const mapStateToProps = (state) => ({
   favorites: state.favorites
 })
 
-export const mapDispatchToProps = (dispatch) => ({
-  populateFavorites: (movies) => dispatch(addFavoritesToStore(movies))
-})
-export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
+export default connect(mapStateToProps, null)(Favorites);
