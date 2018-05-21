@@ -66,7 +66,7 @@ describe("UserLogin", () => {
       />);
     });
 
-    it('should call dispatch with the correct params', () => {
+    it('should call dispatch on handleLogin with the correct params', () => {
       const mockDispatch = jest.fn()
       const mappedProps = mapDispatchToProps(mockDispatch)
       const mockUser = {
@@ -83,6 +83,20 @@ describe("UserLogin", () => {
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction)
     })
+
+    it('should call dispatch on populateFavorites with the correct params', () => {
+      const mockDispatch = jest.fn()
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockAction = {
+        type: "ADD_FAVORITES",
+        favorites: [{}, {}]
+      }
+      const mockFavorites = [{},{}]
+  
+      mappedProps.populateFavorites(mockFavorites)
+  
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+    });
   });
 });
 
