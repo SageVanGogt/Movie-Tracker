@@ -28,13 +28,17 @@ export const Card = props => {
   const favoriteBtn = (
     <div
       type="button"
-      onClick={() => handleFavoriteClick()}>
+      onClick={() => {
+        props.user.user_id && handleFavoriteClick()}
+        }>
       Favorite
     </div>);
   const removeFavoriteBtn = (
     <div
       type="button"
-      onClick={() => handleDeleteClick()}>
+      onClick={ () => {
+        props.user.user_id && handleDeleteClick()}
+        }>
       Remove Favorite
     </div>);
 

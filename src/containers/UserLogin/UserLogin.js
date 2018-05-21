@@ -23,15 +23,11 @@ export class UserLogin extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetchUser(this.state)
-      this.props.handleLogin(response.data)
-      this.setState({
-        email: "",
-        password: ""
-      })
+      const response = await fetchUser(this.state);
+      this.props.handleLogin(response.data);
     } catch(err) {
       const error = "Failed to grab user data";
-      throw error
+      throw error;
     }
   };
 

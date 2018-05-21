@@ -23,7 +23,7 @@ export class App extends Component {
   }
 
   getFavorites = async () => {
-    if (this.props.user.user_id) {
+    if (this.props.user.name) {
       const favorites = await getUserFavorites(this.props.user.user_id);
       this.props.populateFavorites(favorites.data)
     }
