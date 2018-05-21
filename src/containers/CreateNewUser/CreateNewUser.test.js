@@ -52,18 +52,16 @@ describe("CreateNewUser", () => {
     expect(addUserFetch).toHaveBeenCalledWith(wrapper.state());  
   });
 
-  it.skip('should call handleSignup with the correct params', async () => {
-    const handleSignupSpy = jest.spyOn(handleSignup)
+  it('should call handleSignup with the correct params', async () => {
     const mockUser = {
       "id": 1,
-      "name": "chiao"
+      "name": ""
     }
     let mockEvent = {preventDefault: jest.fn()};  
-    // Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
 
     await wrapper.instance().handleSubmit(mockEvent)
 
-    expect(handleSignupSpy).toHaveBeenCalledWith(mockUser)
+    expect(mockHandleSignup).toHaveBeenCalledWith(mockUser)
   })
 
   describe('mapDispatchtoProps', () => {
