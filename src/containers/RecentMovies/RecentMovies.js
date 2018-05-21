@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Card from './../../components/Card/Card';
+import './RecentMovies.css'
 
 const RecentMovies = (props) => {
   const {user, films} = props
