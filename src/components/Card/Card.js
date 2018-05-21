@@ -2,6 +2,7 @@ import React from "react";
 import { postFavoriteToDb, removeFavorite } from './../../apiCall/apiCall';
 import { connect } from 'react-redux';
 import { removeFavoriteFromStore, addFavoriteToStore } from '../../actions/index';
+import './Card.css'
 
 export const Card = props => {
   const {
@@ -27,6 +28,7 @@ export const Card = props => {
   const movieIdArray = props.favorites.map(movie => movie.movie_id);
   const favoriteBtn = (
     <div
+      className="favorite-button"
       type="button"
       onClick={() => {
         props.user.user_id && handleFavoriteClick()}
@@ -35,6 +37,7 @@ export const Card = props => {
     </div>);
   const removeFavoriteBtn = (
     <div
+      className="favorite-button"
       type="button"
       onClick={ () => {
         props.user.user_id && handleDeleteClick()}
@@ -44,14 +47,17 @@ export const Card = props => {
 
 
   return (
-    <div>
-      <div>{vote_average}</div>
-      <img src={poster_path} />
-      <h2>{title}</h2>
-      <h4>{release_date}</h4>
+    <div className="card">
       <div className="overview">
-        <p>{overview}</p>
+        <p className="overview-text">{overview}</p>
       </div>
+      <div className="movie-img" style={{backgroundImage: `url(${poster_path})`}}>
+        <div className="vote-avg-circle">
+          <h4 className="avg-score">{vote_average}</h4>
+        </div>
+      </div>
+      <h2 className="movie-title">{title}</h2>
+      <h4 className="movie-date">{release_date}</h4>
       {movieIdArray.includes(movie_id) ? removeFavoriteBtn : favoriteBtn}
     </div>
   );
