@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { fetchUser } from "../../apiCall/apiCall";
-import { updateStoreUser } from './../../actions/index'
+import { fetchUser, getUserFavorites } from "../../apiCall/apiCall";
+import { updateStoreUser, addFavoritesToStore } from './../../actions/index'
 import { connect } from 'react-redux'
 
 export class UserLogin extends Component {
@@ -25,11 +25,17 @@ export class UserLogin extends Component {
     try {
       const response = await fetchUser(this.state);
       this.props.handleLogin(response.data);
+      this.getFavorites(response.data)
     } catch(err) {
       const error = "Failed to grab user data";
       throw error;
     }
   };
+
+  getFavorites = async (user) => {
+      const favorites = await getUserFavorites(user.id);
+      this.props.populateFavorites(favorites.data)
+  }
 
   render() {
     return (
@@ -57,7 +63,8 @@ export class UserLogin extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  handleLogin: (user) => dispatch(updateStoreUser(user))
+  handleLogin: (user) => dispatch(updateStoreUser(user)),
+  populateFavorites: (movies) => dispatch(addFavoritesToStore(movies))  
 })
 
 export default connect(null, mapDispatchToProps)(UserLogin);
