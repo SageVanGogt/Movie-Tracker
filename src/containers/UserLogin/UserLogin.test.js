@@ -1,7 +1,7 @@
 import {UserLogin, mapDispatchToProps} from "./UserLogin";
 import React from "react";
 import { shallow } from "enzyme";
-import { fetchUser } from "./../../apiCall/apiCall";
+import { fetchUser, getUserFavorites } from "./../../apiCall/apiCall";
 
 
 jest.mock('./../../apiCall/apiCall');
@@ -9,9 +9,14 @@ jest.mock('./../../apiCall/apiCall');
 describe("UserLogin", () => {
   let wrapper;
   let mockHandleLogin;
+  let mockPopulateFavorites;
   beforeEach(() => {
-    mockHandleLogin= jest.fn()
-    wrapper = shallow(<UserLogin handleLogin={mockHandleLogin} />);
+    mockPopulateFavorites = jest.fn();
+    mockHandleLogin= jest.fn();
+    wrapper = shallow(<UserLogin 
+      handleLogin={mockHandleLogin} 
+      populateFavorites={mockPopulateFavorites}
+      />);
   });
 
   it("has a default state", () => {
@@ -41,22 +46,6 @@ describe("UserLogin", () => {
     expect(wrapper.state()).toEqual(expected);
   });
 
-  it('should reset state after handleSubmit', async () => {
-    wrapper.setState({
-      email: "dog",
-      password: "catdog"
-    })
-    const expected = {
-      email: "",
-      password: ""
-    }
-    let mockEvent = {preventDefault: jest.fn()}    
-
-    await wrapper.instance().handleSubmit(mockEvent);
-
-    expect(wrapper.state()).toEqual(expected);
-  })
-
   it('should calls fetchUser callback after adding user', async () => {
     let mockEvent = {preventDefault: jest.fn()}
     Promise.resolve(wrapper.instance().handleSubmit(mockEvent))
@@ -67,9 +56,14 @@ describe("UserLogin", () => {
   describe('mapDispatchToProps', () => {
     let wrapper;
     let mockHandleSignIn;
+    let mockPopulateFavorites;
     beforeEach(() => {
-      mockHandleSignIn= jest.fn()
-      wrapper = shallow(<UserLogin handleSignIn={mockHandleSignIn} />);
+      mockPopulateFavorites = jest.fn();
+      mockHandleSignIn= jest.fn();
+      wrapper = shallow(<UserLogin 
+        handleSignIn={mockHandleSignIn} 
+        populateFavorites={mockPopulateFavorites}
+      />);
     });
 
     it('should call dispatch with the correct params', () => {
