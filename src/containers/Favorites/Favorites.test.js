@@ -1,5 +1,5 @@
 import React from 'react';
-import { Favorites, mapStateToProps, mapDispatchToProps } from './Favorites';
+import { Favorites, mapStateToProps } from './Favorites';
 import { shallow } from 'enzyme';
 
 describe('Favorites', () => {
@@ -25,18 +25,4 @@ describe('Favorites', () => {
       expect(mappedProps).toEqual(expected);
     })
   })
-
-  describe('mapDispatchToProps', () => {
-    const mockDispatch = jest.fn()
-    const mappedProps = mapDispatchToProps(mockDispatch)
-    const mockAction = {
-      type: "ADD_FAVORITES",
-      favorites: [{}, {}]
-    }
-    const mockFavorites = [{},{}]
-
-    mappedProps.populateFavorites(mockFavorites)
-
-    expect(mockDispatch).toHaveBeenCalledWith(mockAction)
-  });
 })

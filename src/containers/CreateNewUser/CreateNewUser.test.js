@@ -5,13 +5,15 @@ import { addUserFetch } from "./../../apiCall/apiCall";
 
 jest.mock('./../../apiCall/apiCall');
 
-describe.skip("CreateNewUser", () => {
+describe("CreateNewUser", () => {
   let wrapper;
-  let handleSignup;
+  let mockHandleSignup;
 
   beforeEach(() => {
-    handleSignup = jest.fn()
-    wrapper = shallow(<CreateNewUser />);
+    mockHandleSignup = jest.fn()
+    wrapper = shallow(<CreateNewUser 
+      handleSignup={mockHandleSignup}
+    />);
   });
 
   it("has a default state", () => {
@@ -43,24 +45,6 @@ describe.skip("CreateNewUser", () => {
     expect(wrapper.state()).toEqual(expected);
   });
 
-  it.skip('should reset state after handleSubmit', async () => {
-    wrapper.setState({
-      name: "cat",
-      email: "dog",
-      password: "catdog"
-    });
-    const expected = {
-      name: "",
-      email: "",
-      password: ""
-    };
-    let mockEvent = {preventDefault: jest.fn()};  
-
-    await wrapper.instance().handleSubmit(mockEvent);
-
-    expect(wrapper.state()).toEqual(expected);
-  })
-
   it('should calls addUserFetch callback after adding user', async () => {
     let mockEvent = {preventDefault: jest.fn()};
     Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
@@ -68,18 +52,18 @@ describe.skip("CreateNewUser", () => {
     expect(addUserFetch).toHaveBeenCalledWith(wrapper.state());  
   });
 
-  it.skip('should call updateUser with the correct params', async () => {
-    const updateUser = jest.fn()
+  it.skip('should call handleSignup with the correct params', async () => {
+    const handleSignupSpy = jest.spyOn(handleSignup)
     const mockUser = {
       "id": 1,
-      "email": "tman2272@aol.com"
+      "name": "chiao"
     }
     let mockEvent = {preventDefault: jest.fn()};  
     // Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
 
     await wrapper.instance().handleSubmit(mockEvent)
 
-    expect(updateUser).toHaveBeenCalledWith(mockUser)
+    expect(handleSignupSpy).toHaveBeenCalledWith(mockUser)
   })
 
   describe('mapDispatchtoProps', () => {

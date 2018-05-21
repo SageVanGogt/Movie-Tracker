@@ -5,6 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Unknown
+    favorites={Array []}
     film_id={1}
     overview="a bunch of text about how bad this move is"
     poster_path="www.theworstmovieever.com"
@@ -25,38 +26,48 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <div>
-          34
-</div>,
-        <img
-          src="www.theworstmovieever.com"
-/>,
-        <h2>
-          Fury
-</h2>,
-        <h4>
-          2014
-</h4>,
         <div
           className="overview"
 >
-          <p>
-                    a bunch of text about how bad this move is
-          </p>
+          a bunch of text about how bad this move is
 </div>,
         <div
+          className="movie-img"
+          style={
+                    Object {
+                              "backgroundImage": "url(www.theworstmovieever.com)",
+                            }
+          }
+>
+          <div
+                    className="vote-avg-circle"
+          >
+                    <h4
+                              className="avg-score"
+                    >
+                              34
+                    </h4>
+          </div>
+</div>,
+        <h2
+          className="movie-title"
+>
+          Fury
+</h2>,
+        <h4
+          className="movie-date"
+>
+          2014
+</h4>,
+        <div
+          className="favorite-button"
           onClick={[Function]}
           type="button"
 >
           Favorite
 </div>,
-        <div
-          onClick={[Function]}
-          type="button"
->
-           Remove Favorite 
-</div>,
       ],
+      "className": "card",
     },
     "ref": null,
     "rendered": Array [
@@ -65,10 +76,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": 34,
+          "children": "a bunch of text about how bad this move is",
+          "className": "overview",
         },
         "ref": null,
-        "rendered": 34,
+        "rendered": "a bunch of text about how bad this move is",
         "type": "div",
       },
       Object {
@@ -76,11 +88,49 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "src": "www.theworstmovieever.com",
+          "children": <div
+            className="vote-avg-circle"
+>
+            <h4
+                        className="avg-score"
+            >
+                        34
+            </h4>
+</div>,
+          "className": "movie-img",
+          "style": Object {
+            "backgroundImage": "url(www.theworstmovieever.com)",
+          },
         },
         "ref": null,
-        "rendered": null,
-        "type": "img",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <h4
+              className="avg-score"
+>
+              34
+</h4>,
+            "className": "vote-avg-circle",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": 34,
+              "className": "avg-score",
+            },
+            "ref": null,
+            "rendered": 34,
+            "type": "h4",
+          },
+          "type": "div",
+        },
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -88,6 +138,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Fury",
+          "className": "movie-title",
         },
         "ref": null,
         "rendered": "Fury",
@@ -99,6 +150,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": 2014,
+          "className": "movie-date",
         },
         "ref": null,
         "rendered": 2014,
@@ -109,49 +161,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <p>
-            a bunch of text about how bad this move is
-</p>,
-          "className": "overview",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "a bunch of text about how bad this move is",
-          },
-          "ref": null,
-          "rendered": "a bunch of text about how bad this move is",
-          "type": "p",
-        },
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
           "children": "Favorite",
+          "className": "favorite-button",
           "onClick": [Function],
           "type": "button",
         },
         "ref": null,
         "rendered": "Favorite",
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": " Remove Favorite ",
-          "onClick": [Function],
-          "type": "button",
-        },
-        "ref": null,
-        "rendered": " Remove Favorite ",
         "type": "div",
       },
     ],
@@ -164,38 +180,48 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <div>
-            34
-</div>,
-          <img
-            src="www.theworstmovieever.com"
-/>,
-          <h2>
-            Fury
-</h2>,
-          <h4>
-            2014
-</h4>,
           <div
             className="overview"
 >
-            <p>
-                        a bunch of text about how bad this move is
-            </p>
+            a bunch of text about how bad this move is
 </div>,
           <div
+            className="movie-img"
+            style={
+                        Object {
+                                    "backgroundImage": "url(www.theworstmovieever.com)",
+                                  }
+            }
+>
+            <div
+                        className="vote-avg-circle"
+            >
+                        <h4
+                                    className="avg-score"
+                        >
+                                    34
+                        </h4>
+            </div>
+</div>,
+          <h2
+            className="movie-title"
+>
+            Fury
+</h2>,
+          <h4
+            className="movie-date"
+>
+            2014
+</h4>,
+          <div
+            className="favorite-button"
             onClick={[Function]}
             type="button"
 >
             Favorite
 </div>,
-          <div
-            onClick={[Function]}
-            type="button"
->
-             Remove Favorite 
-</div>,
         ],
+        "className": "card",
       },
       "ref": null,
       "rendered": Array [
@@ -204,10 +230,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": 34,
+            "children": "a bunch of text about how bad this move is",
+            "className": "overview",
           },
           "ref": null,
-          "rendered": 34,
+          "rendered": "a bunch of text about how bad this move is",
           "type": "div",
         },
         Object {
@@ -215,11 +242,49 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "src": "www.theworstmovieever.com",
+            "children": <div
+              className="vote-avg-circle"
+>
+              <h4
+                            className="avg-score"
+              >
+                            34
+              </h4>
+</div>,
+            "className": "movie-img",
+            "style": Object {
+              "backgroundImage": "url(www.theworstmovieever.com)",
+            },
           },
           "ref": null,
-          "rendered": null,
-          "type": "img",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <h4
+                className="avg-score"
+>
+                34
+</h4>,
+              "className": "vote-avg-circle",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": 34,
+                "className": "avg-score",
+              },
+              "ref": null,
+              "rendered": 34,
+              "type": "h4",
+            },
+            "type": "div",
+          },
+          "type": "div",
         },
         Object {
           "instance": null,
@@ -227,6 +292,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Fury",
+            "className": "movie-title",
           },
           "ref": null,
           "rendered": "Fury",
@@ -238,6 +304,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": 2014,
+            "className": "movie-date",
           },
           "ref": null,
           "rendered": 2014,
@@ -248,49 +315,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <p>
-              a bunch of text about how bad this move is
-</p>,
-            "className": "overview",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "a bunch of text about how bad this move is",
-            },
-            "ref": null,
-            "rendered": "a bunch of text about how bad this move is",
-            "type": "p",
-          },
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
             "children": "Favorite",
+            "className": "favorite-button",
             "onClick": [Function],
             "type": "button",
           },
           "ref": null,
           "rendered": "Favorite",
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": " Remove Favorite ",
-            "onClick": [Function],
-            "type": "button",
-          },
-          "ref": null,
-          "rendered": " Remove Favorite ",
           "type": "div",
         },
       ],
