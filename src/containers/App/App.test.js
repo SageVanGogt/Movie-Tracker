@@ -4,17 +4,38 @@ import { shallow, mount } from 'enzyme';
 import { App, mapStateToProps, mapDispatchToProps } from './App';
 import mockCleanData from './../../mockData/mockCleanData';
 import mockData from './../../mockData/mockData';
-import {fetchRecentFilms} from './../../apiCall/apiCall';
+import { fetchRecentFilms } from './../../apiCall/apiCall';
+// import cleanFilmData from './../../helper/helper';
 
 jest.mock('./../../apiCall/apiCall');
 describe('App', () => {
   let wrapper;
+  let mockHandlePageLoadFilms;
 
   beforeEach(() => {
-    let mockHandlePageLoadFilms = jest.fn();
+    mockHandlePageLoadFilms = jest.fn();
     wrapper = shallow(<App
       handlePageLoadFilms={mockHandlePageLoadFilms}
     />, { disableLifeCycleMethods: true });
+  })
+
+  it('getRecentFilms should call fetchRecentFilms on pageload', async () => {
+    await wrapper.instance().getRecentFilms();
+
+    expect(fetchRecentFilms).toHaveBeenCalled()
+  })
+
+  it.skip('getRecentFilms should call cleanFilmData on with fetchedFilms', async () => {
+    let cleanFilmData = jest.fn()
+    await wrapper.instance().getRecentFilms();
+
+    expect(cleanFilmData).toHaveBeenCalledWith()
+  })
+
+  it('should call handlePageLoadFilms with the correct params', async () => {
+    await wrapper.instance().getRecentFilms()
+
+    expect(mockHandlePageLoadFilms).toHaveBeenCalledWith(mockCleanData)
   })
 
   describe('mapDispatchToProps', () => {
