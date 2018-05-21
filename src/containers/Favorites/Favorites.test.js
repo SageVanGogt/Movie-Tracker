@@ -9,6 +9,8 @@ describe('Favorites', () => {
       favorites: [{movie_id:1}, {movie_id:2}, {movie_id:3}]
     }
     let wrapper = shallow(<Favorites {...mockProps}/>)
+
+    expect(wrapper).toMatchSnapshot()
   })
 
   describe('mapStateToProps', () => {
