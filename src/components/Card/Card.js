@@ -12,7 +12,7 @@ export const Card = props => {
     overview,
     release_date
   } = props;
-  
+
   const handleDeleteClick = () => {
     removeFavorite({
       user_id: props.user.user_id,
@@ -24,27 +24,38 @@ export const Card = props => {
     postFavoriteToDb(props, props.user)
     props.handleAddFavorite(props);
   }
+  const movieIdArray = props.favorites.map(movie => movie.movie_id);
+  const favoriteBtn = (
+    <div
+      type="button"
+      onClick={() => handleFavoriteClick()}>
+      Favorite
+    </div>);
+  const removeFavoriteBtn = (
+    <div
+      type="button"
+      onClick={() => handleDeleteClick()}>
+      Remove Favorite
+    </div>);
+
 
   return (
     <div>
       <div>{vote_average}</div>
-      <img src={poster_path}/>
+      <img src={poster_path} />
       <h2>{title}</h2>
       <h4>{release_date}</h4>
       <div className="overview">
         <p>{overview}</p>
       </div>
-      <div type="button" onClick={() => handleFavoriteClick()}>Favorite</div>
-      <div type = "button"
-      onClick = {
-        () => handleDeleteClick()
-      } > Remove Favorite </div>
+      {movieIdArray.includes(movie_id) ? removeFavoriteBtn : favoriteBtn}
     </div>
   );
 };
 
 export const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  favorites: state.favorites
 })
 
 export const mapDispatchToProps = (dispatch) => ({
