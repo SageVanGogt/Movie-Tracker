@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { logOutUser} from '../../actions';
 import {NavLink} from 'react-router-dom';
-import './Nav.css'
+import PropTypes from 'prop-types';
+import './Nav.css';
 
 
 const Nav = (props) => {
@@ -29,5 +30,10 @@ export const mapDispatchToProps = (dispatch) => ({
 export const mapStateToProps = (state) => ({
   user: state.user
 })
+
+Nav.propTypes = {
+  handleLogout: PropTypes.func,
+  user: PropTypes.object
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

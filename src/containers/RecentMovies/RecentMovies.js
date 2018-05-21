@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Card from './../../components/Card/Card';
+import PropTypes from 'prop-types';
 import './RecentMovies.css'
 
 const RecentMovies = (props) => {
@@ -21,5 +22,10 @@ export const mapStateToProps = (state) => ({
   user: state.user,
   films: state.films
 })
+
+RecentMovies.propTypes = {
+  films: PropTypes.array,
+  user: PropTypes.object
+}
 
 export default connect(mapStateToProps, null)(RecentMovies);
