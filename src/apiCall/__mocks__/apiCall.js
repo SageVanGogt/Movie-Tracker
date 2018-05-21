@@ -26,5 +26,10 @@ const getUserFavorites = jest.fn().mockImplementation(() => Promise.resolve({
     ]
 }))
 
-export {fetchRecentFilms, addUserFetch, fetchUser, getUserFavorites };
+const removeFavorite = jest.fn().mockImplementation(() => Promise.resolve())
+
+const postFavoriteToDb = jest.fn().mockImplementation(() => Promise.resolve())
+
+
+export {fetchRecentFilms, addUserFetch, fetchUser, getUserFavorites, removeFavorite, postFavoriteToDb };
 

@@ -5,12 +5,27 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Unknown
-    favorites={Array []}
-    film_id={1}
+    favorites={
+        Array [
+            Object {
+              "movie_id": 1,
+            },
+            Object {},
+            Object {},
+          ]
+    }
+    handleAddFavorite={[Function]}
+    handleRemoveFavorite={[Function]}
+    movie_id={1}
     overview="a bunch of text about how bad this move is"
     poster_path="www.theworstmovieever.com"
     release_date={2014}
     title="Fury"
+    user={
+        Object {
+            "user_id": 1,
+          }
+    }
     vote_average={34}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -60,11 +75,11 @@ ShallowWrapper {
           2014
 </h4>,
         <div
-          className="favorite-button"
+          className="delete-button"
           onClick={[Function]}
           type="button"
 >
-          Favorite
+          Remove Favorite
 </div>,
       ],
       "className": "card",
@@ -161,13 +176,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Favorite",
-          "className": "favorite-button",
+          "children": "Remove Favorite",
+          "className": "delete-button",
           "onClick": [Function],
           "type": "button",
         },
         "ref": null,
-        "rendered": "Favorite",
+        "rendered": "Remove Favorite",
         "type": "div",
       },
     ],
@@ -214,11 +229,11 @@ ShallowWrapper {
             2014
 </h4>,
           <div
-            className="favorite-button"
+            className="delete-button"
             onClick={[Function]}
             type="button"
 >
-            Favorite
+            Remove Favorite
 </div>,
         ],
         "className": "card",
@@ -315,13 +330,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Favorite",
-            "className": "favorite-button",
+            "children": "Remove Favorite",
+            "className": "delete-button",
             "onClick": [Function],
             "type": "button",
           },
           "ref": null,
-          "rendered": "Favorite",
+          "rendered": "Remove Favorite",
           "type": "div",
         },
       ],

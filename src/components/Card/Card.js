@@ -36,9 +36,10 @@ export const Card = props => {
         }>
       Favorite
     </div>);
+    
   const removeFavoriteBtn = (
     <div
-      className="favorite-button"
+      className="delete-button"
       type="button"
       onClick={ () => {
         props.user.user_id && handleDeleteClick()}
