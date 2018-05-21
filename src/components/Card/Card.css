@@ -11,7 +11,9 @@
   background-size: cover;
   box-sizing: border-box;
   position: relative;
+  z-index: 0;
 }
+
 
 .vote-avg-circle {
   width: 50px;
@@ -69,17 +71,20 @@
   opacity: 0;
   position: absolute;
   width: 250px;
-  height: 500px;
-  color: white;
-  background-color: black;
-  z-index: 5;
+  height: 370px;
+  color: #fff;
+  background-color: rgba(106, 0, 176, 0.75);
+  z-index: 1;
   font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
-  overflow: hidden;
+  overflow: scroll;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 0.8rem;
+  line-height: 1rem;
 }
 
-.movie-img:hover .overview {
-  visibility: visible;
-  color: white;
+.overview:hover {
   opacity: 1;
 }

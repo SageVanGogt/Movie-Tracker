@@ -5,6 +5,12 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    border-bottom: solid 3px #fff;
+    font-weight: 900;
+}
+
+
 .nav-bar {
     background-color: #a108ff;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.40);

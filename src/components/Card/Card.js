@@ -45,11 +45,10 @@ export const Card = props => {
       Remove Favorite
     </div>);
 
-
   return (
     <div className="card">
       <div className="overview">
-        <p className="overview-text">{overview}</p>
+        {overview}
       </div>
       <div className="movie-img" style={{backgroundImage: `url(${poster_path})`}}>
         <div className="vote-avg-circle">
