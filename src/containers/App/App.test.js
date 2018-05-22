@@ -10,11 +10,20 @@ jest.mock('./../../apiCall/apiCall');
 describe('App', () => {
   let wrapper;
   let mockHandlePageLoadFilms;
-
+  let mockHandleError;
+  let mockProps;
+  
   beforeEach(() => {
     mockHandlePageLoadFilms = jest.fn();
+    mockHandleError = jest.fn()
+    mockProps = {
+      error: ''
+    }
+
     wrapper = shallow(<App
       handlePageLoadFilms={mockHandlePageLoadFilms}
+      handleError={mockHandleError}
+      {...mockProps}
     />, { disableLifeCycleMethods: true });
   })
 
@@ -53,6 +62,20 @@ describe('App', () => {
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction)
     })
+
+    it('should call dispatch on handleError with the correct params', () => {
+      const mockDispatch = jest.fn()
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockAction = {
+        type: "ADD_ERROR",
+        message: "Sign in to add favorites"
+      }
+      const mockError = "Sign in to add favorites";
+
+      mappedProps.handleError(mockError)
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+    });
   })
 
   describe('mapStateToProps', () => {
