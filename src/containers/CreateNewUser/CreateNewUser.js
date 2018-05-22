@@ -24,13 +24,11 @@ export class CreateNewUser extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const response = await addUserFetch(this.state)
-      
+    const response = await addUserFetch(this.state)
+    if(response.id) {
       this.props.handleSignup({id: response.id, name: this.state.name})
-    } catch(err) {
-      const error = "Email already in use";
-      this.props.handleError(error);
+    } else if (response.error) {
+      this.props.handleError("Email already in use");
     }
   };
 
