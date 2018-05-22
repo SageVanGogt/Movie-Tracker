@@ -8,6 +8,13 @@ import logo from '../../assets/logo.svg';
 
 
 export const Nav = (props) => {
+  const signOutBtn = (
+    <NavLink to='/' 
+      className="sign-out"
+      onClick={props.handleLogout}>
+      Sign Out
+    </NavLink>
+  );
   return (
     <div className="nav-bar">
       <img className="logo" src={logo} alt="movie tracker logo"/>
@@ -15,9 +22,7 @@ export const Nav = (props) => {
       <NavLink to="/">Home</NavLink>
       { 
         props.user.user_id ? 
-        <button
-        onClick={props.handleLogout}
-        >Sign Out</button>
+        signOutBtn
         :
         <NavLink to="/login">Login</NavLink>
       }

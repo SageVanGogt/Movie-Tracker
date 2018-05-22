@@ -53,15 +53,15 @@ export const Card = props => {
   return (
     <div className="card">
       <div className="overview">
-        {overview}
+        <h2 className="movie-title">{title}</h2>
+        <h4 className="movie-date">{release_date}</h4>
+        <p>{overview}</p>
       </div>
       <div className="movie-img" style={{backgroundImage: `url(${poster_path})`}}>
         <div className="vote-avg-circle">
           <h4 className="avg-score">{vote_average}</h4>
         </div>
       </div>
-      <h2 className="movie-title">{title}</h2>
-      <h4 className="movie-date">{release_date}</h4>
       {movieIdArray.includes(movie_id) ? removeFavoriteBtn : favoriteBtn}
     </div>
   );
