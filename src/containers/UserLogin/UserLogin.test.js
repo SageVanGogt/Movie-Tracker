@@ -97,7 +97,23 @@ describe("UserLogin", () => {
   
       expect(mockDispatch).toHaveBeenCalledWith(mockAction)
     });
+
+     it('should call dispatch on handleError with the correct params', () => {
+       const mockDispatch = jest.fn()
+       const mappedProps = mapDispatchToProps(mockDispatch)
+       const mockAction = {
+         type: "ADD_ERROR",
+         message: "Password does not match email"
+       }
+       const mockError = "Password does not match email";
+
+       mappedProps.handleError(mockError)
+
+       expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+     });
   });
+
+
 });
 
 
