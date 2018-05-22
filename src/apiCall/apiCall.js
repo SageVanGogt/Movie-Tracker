@@ -90,7 +90,6 @@ const removeFavorite = async (favorite) => {
   }
 }
 
-
 export {
   fetchRecentFilms, 
   addUserFetch, 
