@@ -41,9 +41,17 @@ export class UserLogin extends Component {
 
   render() {
     return (
-      <form type="submit" onSubmit={this.handleSubmit}>
+      <form 
+        className="user-login-form"
+        type="submit" 
+        onSubmit={this.handleSubmit}
+      >
+        <h2 
+          className = "login-header">LOGIN
+        </h2>
         <input
           type="text"
+          className = "form-field"
           value={this.state.email}
           name="email"
           onChange={this.handleChange}
@@ -51,13 +59,15 @@ export class UserLogin extends Component {
         />
         <input
           type="password"
+          className = "form-field"
           value={this.state.password}
           name="password"
           onChange={this.handleChange}
           placeholder="password"          
         />
-         < input
-         type = "submit"
+         <input
+          className = "submit-button"
+          type = "submit" 
          />
       </form>
     );

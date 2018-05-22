@@ -1,10 +1,12 @@
 .login-page {
   padding-top: 150px;
-  width: 50vw;
-  height: 50vh;
-  background-color: rgb(209, 209, 209);
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(17, 0, 29, 0.675);
   margin: auto;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 9000;
+  box-sizing: border-box;
 }
