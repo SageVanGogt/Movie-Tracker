@@ -3,6 +3,7 @@ import { addUserFetch } from "../../apiCall/apiCall";
 import { connect } from 'react-redux'
 import { updateStoreUser, addError } from './../../actions/index';
 import PropTypes from 'prop-types';
+import './CreateNewUser.css';
 
 export class CreateNewUser extends Component {
   constructor(props) {
@@ -34,8 +35,14 @@ export class CreateNewUser extends Component {
 
   render() {
     return (
-      <form type="submit" onSubmit={this.handleSubmit}>
+      <form 
+        type="submit"
+        className="new-user-form border" 
+        onSubmit={this.handleSubmit}
+      >
+        <h2 className="login-header">SIGN UP</h2>
         <input
+          className = "form-field"
           type="text"
           value={this.state.name}
           name="name"
@@ -43,6 +50,7 @@ export class CreateNewUser extends Component {
           placeholder="name"          
         />
         <input
+          className="form-field"
           type="text"
           value={this.state.email}
           name="email"
@@ -50,13 +58,15 @@ export class CreateNewUser extends Component {
           placeholder="email"          
         />
         <input
+          className="form-field"
           type="text"
           value={this.state.password}
           name="password"
           onChange={this.handleChange}
           placeholder="password"          
         />
-         < input
+         <input
+         className = "submit-button"
          type = "submit"
          />
       </form>

@@ -1,0 +1,31 @@
+.user-login-form {
+  display: inline-block;
+  margin: 20px;
+  border-left: 2px solid #FFF;
+  padding-left: 40px;
+  height: 250px;
+}
+
+.form-field {
+  display: block;
+  width: 350px;
+  height: 30px;
+  margin: 15px;
+  padding-left: 10px;
+}
+
+.submit-button {
+  display: block;
+  width: 350px;
+  background-color: #a108ff;
+  color: #FFF;
+  height: 30px;
+  margin: 15px;
+  box-sizing: content-box;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #b748fc;
+}
