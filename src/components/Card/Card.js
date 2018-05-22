@@ -1,7 +1,7 @@
 import React from "react";
 import { postFavoriteToDb, removeFavorite } from './../../apiCall/apiCall';
 import { connect } from 'react-redux';
-import { removeFavoriteFromStore, addFavoriteToStore } from '../../actions/index';
+import { removeFavoriteFromStore, addFavoriteToStore, addError } from '../../actions/index';
 import PropTypes from 'prop-types';
 import './Card.css'
 
@@ -32,7 +32,10 @@ export const Card = props => {
       className="favorite-button"
       type="button"
       onClick={() => {
-        props.user.user_id && handleFavoriteClick()}
+        props.user.user_id ? 
+        handleFavoriteClick()
+        : 
+        props.handleError("Sign in to add favorites")}
         }>
       Favorite
     </div>);
@@ -71,7 +74,8 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   handleRemoveFavorite: (movieId) => dispatch(removeFavoriteFromStore(movieId)),
-  handleAddFavorite: (favorite) => dispatch(addFavoriteToStore(favorite))
+  handleAddFavorite: (favorite) => dispatch(addFavoriteToStore(favorite)),
+  handleError: (error) => dispatch(addError(error))  
 })
 
 Card.propTypes = {

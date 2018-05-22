@@ -5,6 +5,8 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
+    error=""
+    handleError={[Function]}
     handlePageLoadFilms={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -23,6 +25,7 @@ ShallowWrapper {
         <header>
           <Connect(Component) />
 </header>,
+        false,
         <Switch>
           <Route
                     exact={true}
@@ -64,6 +67,7 @@ ShallowWrapper {
         },
         "type": "header",
       },
+      false,
       Object {
         "instance": null,
         "key": undefined,
@@ -144,6 +148,7 @@ ShallowWrapper {
           <header>
             <Connect(Component) />
 </header>,
+          false,
           <Switch>
             <Route
                         exact={true}
@@ -185,6 +190,7 @@ ShallowWrapper {
           },
           "type": "header",
         },
+        false,
         Object {
           "instance": null,
           "key": undefined,
