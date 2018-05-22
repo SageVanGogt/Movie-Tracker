@@ -40,12 +40,22 @@ const addFavoriteToStore = (favorite) => {
   }
 }
 
+const addError = (message) => {
+  return {
+    type: 'ADD_ERROR',
+    message 
+  }
+}
+
+
+
 export {
   addRecentFilms,
   updateStoreUser,
   logOutUser,
   addFavoritesToStore,
   removeFavoriteFromStore,
-  addFavoriteToStore
+  addFavoriteToStore,
+  addError
 }
 

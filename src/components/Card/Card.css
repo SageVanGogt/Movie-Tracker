@@ -73,16 +73,17 @@
   width: 250px;
   height: 370px;
   color: #fff;
-  background-color: rgba(106, 0, 176, 0.75);
+  background-color: rgba(17, 0, 29, 0.675);
   z-index: 1;
   font-family: 'Fira Sans', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   overflow: scroll;
   padding: 30px;
   box-sizing: border-box;
   text-align: left;
   font-size: 0.8rem;
-  line-height: 1rem;
+  line-height: 1.2rem;
+  transition: opacity 1s ease-out;
 }
 
 .overview:hover {

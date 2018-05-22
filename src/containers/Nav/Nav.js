@@ -4,11 +4,13 @@ import { logOutUser} from '../../actions';
 import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Nav.css';
+import logo from '../../assets/logo.svg';
 
 
 export const Nav = (props) => {
   return (
     <div className="nav-bar">
+      <img className="logo" src={logo} alt="movie tracker logo"/>
       <NavLink to="/favorites">Favorites</NavLink>
       <NavLink to="/">Home</NavLink>
       { 

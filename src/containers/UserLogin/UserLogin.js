@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { fetchUser, getUserFavorites } from "../../apiCall/apiCall";
-import { updateStoreUser, addFavoritesToStore } from './../../actions/index'
+import { updateStoreUser, addFavoritesToStore, addError } from './../../actions/index'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './UserLogin.css';
@@ -29,8 +29,8 @@ export class UserLogin extends Component {
       this.props.handleLogin(response.data);
       this.getFavorites(response.data)
     } catch(err) {
-      const error = "Failed to grab user data";
-      throw error;
+      const error = "Password does not match email";
+      this.props.handleError(error);
     }
   };
 
@@ -66,12 +66,14 @@ export class UserLogin extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
   handleLogin: (user) => dispatch(updateStoreUser(user)),
-  populateFavorites: (movies) => dispatch(addFavoritesToStore(movies))  
+  populateFavorites: (movies) => dispatch(addFavoritesToStore(movies)),
+  handleError: (error) => dispatch(addError(error))  
 })
 
 UserLogin.propTypes = {
   handleLogin: PropTypes.func,
-  populateFavorites: PropTypes.func
+  populateFavorites: PropTypes.func,
+  handleError: PropTypes.func
 }
 
 export default connect(null, mapDispatchToProps)(UserLogin);

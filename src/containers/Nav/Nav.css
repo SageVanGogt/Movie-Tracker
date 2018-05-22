@@ -21,3 +21,7 @@ a:hover {
     width: 100%;
     z-index: 1000;
 }
+
+.logo {
+    width: 200px;
+}
