@@ -83,4 +83,18 @@ describe('logOutUser', () => {
     })
   })
 
+  describe('addError', () => {
+    it('should return an object with a type of ADD_ERROR', () => {
+      const error = 'this is an error message';
+      const expected = {
+        type: 'ADD_ERROR',
+        message: error
+      } 
+
+      const actual = actions.addError(error);
+
+      expect(actual).toEqual(expected)
+    })
+  })
+
 })

@@ -24,6 +24,11 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <img
+          alt="movie tracker logo"
+          className="logo"
+          src="logo.svg"
+/>,
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
@@ -48,6 +53,19 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "movie tracker logo",
+          "className": "logo",
+          "src": "logo.svg",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -98,6 +116,11 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <img
+            alt="movie tracker logo"
+            className="logo"
+            src="logo.svg"
+/>,
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
@@ -122,6 +145,19 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "movie tracker logo",
+            "className": "logo",
+            "src": "logo.svg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
         Object {
           "instance": null,
           "key": undefined,
