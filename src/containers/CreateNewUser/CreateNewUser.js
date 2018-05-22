@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { addUserFetch } from "../../apiCall/apiCall";
 import { connect } from 'react-redux'
-import { updateStoreUser } from './../../actions/index';
+import { updateStoreUser, addError } from './../../actions/index';
 import PropTypes from 'prop-types';
 
 export class CreateNewUser extends Component {
@@ -24,12 +24,11 @@ export class CreateNewUser extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const response = await addUserFetch(this.state)
+    const response = await addUserFetch(this.state)
+    if(response.id) {
       this.props.handleSignup({id: response.id, name: this.state.name})
-    } catch(err) {
-      const error = "Failed to submit user data";
-      throw error
+    } else if (response.error) {
+      this.props.handleError("Email already in use");
     }
   };
 
@@ -66,7 +65,8 @@ export class CreateNewUser extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  handleSignup:(user) => dispatch(updateStoreUser(user))
+  handleSignup:(user) => dispatch(updateStoreUser(user)),
+  handleError: (error) => dispatch(addError(error))    
 })
 
 CreateNewUser.propTypes = {

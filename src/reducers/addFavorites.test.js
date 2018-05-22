@@ -26,6 +26,17 @@ describe('addFavoritesReducer', () => {
     expect(actual).toEqual(expected)
   })
 
+  it('should remove favorites if the user logs out', () => {
+    const mockState = [{movie_id: 23 }, { movie_id: 3526}]
+    const mockAction = {
+      type: 'LOGOUT_USER'
+    }
+    const expected = []
+    const actual = addFavoritesReducer(mockState, mockAction)
+
+    expect(actual).toEqual(expected)
+  })
+
   it('should add a favorite to the favorites array', () => {
     const mockState = [{movie_id: 2 }, { movie_id: 3526}]
     const mockFavorite = {movie_id: 23}
