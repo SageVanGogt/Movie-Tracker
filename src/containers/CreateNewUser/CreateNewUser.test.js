@@ -83,5 +83,19 @@ describe("CreateNewUser", () => {
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction)
     });
+
+    it('should call dispatch on handleError with the correct params', () => {
+      const mockDispatch = jest.fn()
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockAction = {
+        type: "ADD_ERROR",
+        message: "Email already in use"
+      }
+      const mockError = "Email already in use";
+
+      mappedProps.handleError(mockError)
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+    });
   });
 });

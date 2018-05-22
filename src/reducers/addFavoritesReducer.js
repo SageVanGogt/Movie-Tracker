@@ -9,6 +9,8 @@
             return filtersFavorites;
         case 'ADD_ONE_FAVORITE':
             return [...state, action.favorite]
+        case 'LOGOUT_USER':
+            return [];
         default:
             return state
     }
