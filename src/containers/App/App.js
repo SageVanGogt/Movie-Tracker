@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { fetchRecentFilms } from './../../apiCall/apiCall';
 import cleanFilmData from './../../helper/helper';
 import { connect } from 'react-redux';
-import { addRecentFilms } from './../../actions/index';
+import { addRecentFilms, addError } from './../../actions/index';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Nav from '../Nav/Nav';
@@ -22,12 +22,20 @@ export class App extends Component {
     this.props.handlePageLoadFilms(pageLoadFilms);
   }
 
+  setError() {
+    alert(this.props.error)
+    this.props.handleError('')
+  }
+
   render() {
     return (
       <div className="App">
         <header> 
           <Nav />
         </header>
+        {this.props.error.length > 1 &&
+          this.setError()
+        }
         <Switch>
           <Route 
             exact path="/login" 
@@ -52,10 +60,12 @@ export class App extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
   handlePageLoadFilms: (pageLoadFilms) => dispatch(addRecentFilms(pageLoadFilms)),
+  handleError: (error) => dispatch(addError(error))  
 })
 
 export const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  error: state.error
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
