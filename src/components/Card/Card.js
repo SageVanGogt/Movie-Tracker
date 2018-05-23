@@ -83,7 +83,6 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 Card.propTypes = {
-<<<<<<< HEAD
   movie_id: PropTypes.number,
   vote_average: PropTypes.number,
   title: PropTypes.string,
@@ -92,21 +91,9 @@ Card.propTypes = {
   release_date: PropTypes.string,
   handleAddFavorite: PropTypes.func,
   handleRemoveFavorite: PropTypes.func,
-  user: PropTypes.object
+  user: PropTypes.object,
+  favorites: PropTypes.array,
+  handleError: PropTypes.func
 };
-=======
-   movie_id: PropTypes.number,
-   vote_average: PropTypes.number,
-   title: PropTypes.string,
-   poster_path: PropTypes.string,
-   overview: PropTypes.string,
-   release_date: PropTypes.string,
-   handleAddFavorite: PropTypes.func,
-   handleRemoveFavorite: PropTypes.func,
-   user: PropTypes.object,
-   favorites: PropTypes.array,
-   handleError: PropTypes.func
-  }
->>>>>>> Add proptypes and fixed api test
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
