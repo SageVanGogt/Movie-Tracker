@@ -6,9 +6,14 @@ import { createStore } from 'redux'
 import rootReducer from '../src/reducers/index'
 import App from './containers/App/App'
 import './index.css'
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+import { loadState, saveState } from './localStorage';
 
-const store = createStore(rootReducer, devTools);
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const persistedState = loadState();
+const store = createStore(rootReducer, persistedState, devTools);
+store.subscribe(() => {
+  saveState(store.getState())
+});
 
 render(
   <Provider store={store} >

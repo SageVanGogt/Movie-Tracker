@@ -43,11 +43,15 @@ ShallowWrapper {
 >
           Home
 </NavLink>,
-        <button
+        <NavLink
+          activeClassName="active"
+          ariaCurrent="true"
+          className="sign-out"
           onClick={undefined}
+          to="/"
 >
           Sign Out
-</button>,
+</NavLink>,
       ],
       "className": "nav-bar",
     },
@@ -97,14 +101,18 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
+          "activeClassName": "active",
+          "ariaCurrent": "true",
           "children": "Sign Out",
+          "className": "sign-out",
           "onClick": undefined,
+          "to": "/",
         },
         "ref": null,
         "rendered": "Sign Out",
-        "type": "button",
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -135,11 +143,15 @@ ShallowWrapper {
 >
             Home
 </NavLink>,
-          <button
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            className="sign-out"
             onClick={undefined}
+            to="/"
 >
             Sign Out
-</button>,
+</NavLink>,
         ],
         "className": "nav-bar",
       },
@@ -189,14 +201,18 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
             "children": "Sign Out",
+            "className": "sign-out",
             "onClick": undefined,
+            "to": "/",
           },
           "ref": null,
           "rendered": "Sign Out",
-          "type": "button",
+          "type": [Function],
         },
       ],
       "type": "div",

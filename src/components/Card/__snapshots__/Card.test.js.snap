@@ -44,7 +44,19 @@ ShallowWrapper {
         <div
           className="overview"
 >
-          a bunch of text about how bad this move is
+          <h2
+                    className="movie-title"
+          >
+                    Fury
+          </h2>
+          <h4
+                    className="movie-date"
+          >
+                    2014
+          </h4>
+          <p>
+                    a bunch of text about how bad this move is
+          </p>
 </div>,
         <div
           className="movie-img"
@@ -64,16 +76,6 @@ ShallowWrapper {
                     </h4>
           </div>
 </div>,
-        <h2
-          className="movie-title"
->
-          Fury
-</h2>,
-        <h4
-          className="movie-date"
->
-          2014
-</h4>,
         <div
           className="delete-button"
           onClick={[Function]}
@@ -91,11 +93,61 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "a bunch of text about how bad this move is",
+          "children": Array [
+            <h2
+              className="movie-title"
+>
+              Fury
+</h2>,
+            <h4
+              className="movie-date"
+>
+              2014
+</h4>,
+            <p>
+              a bunch of text about how bad this move is
+</p>,
+          ],
           "className": "overview",
         },
         "ref": null,
-        "rendered": "a bunch of text about how bad this move is",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Fury",
+              "className": "movie-title",
+            },
+            "ref": null,
+            "rendered": "Fury",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": 2014,
+              "className": "movie-date",
+            },
+            "ref": null,
+            "rendered": 2014,
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "a bunch of text about how bad this move is",
+            },
+            "ref": null,
+            "rendered": "a bunch of text about how bad this move is",
+            "type": "p",
+          },
+        ],
         "type": "div",
       },
       Object {
@@ -152,30 +204,6 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Fury",
-          "className": "movie-title",
-        },
-        "ref": null,
-        "rendered": "Fury",
-        "type": "h2",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": 2014,
-          "className": "movie-date",
-        },
-        "ref": null,
-        "rendered": 2014,
-        "type": "h4",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
           "children": "Remove Favorite",
           "className": "delete-button",
           "onClick": [Function],
@@ -198,7 +226,19 @@ ShallowWrapper {
           <div
             className="overview"
 >
-            a bunch of text about how bad this move is
+            <h2
+                        className="movie-title"
+            >
+                        Fury
+            </h2>
+            <h4
+                        className="movie-date"
+            >
+                        2014
+            </h4>
+            <p>
+                        a bunch of text about how bad this move is
+            </p>
 </div>,
           <div
             className="movie-img"
@@ -218,16 +258,6 @@ ShallowWrapper {
                         </h4>
             </div>
 </div>,
-          <h2
-            className="movie-title"
->
-            Fury
-</h2>,
-          <h4
-            className="movie-date"
->
-            2014
-</h4>,
           <div
             className="delete-button"
             onClick={[Function]}
@@ -245,11 +275,61 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "a bunch of text about how bad this move is",
+            "children": Array [
+              <h2
+                className="movie-title"
+>
+                Fury
+</h2>,
+              <h4
+                className="movie-date"
+>
+                2014
+</h4>,
+              <p>
+                a bunch of text about how bad this move is
+</p>,
+            ],
             "className": "overview",
           },
           "ref": null,
-          "rendered": "a bunch of text about how bad this move is",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Fury",
+                "className": "movie-title",
+              },
+              "ref": null,
+              "rendered": "Fury",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": 2014,
+                "className": "movie-date",
+              },
+              "ref": null,
+              "rendered": 2014,
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "a bunch of text about how bad this move is",
+              },
+              "ref": null,
+              "rendered": "a bunch of text about how bad this move is",
+              "type": "p",
+            },
+          ],
           "type": "div",
         },
         Object {
@@ -300,30 +380,6 @@ ShallowWrapper {
             "type": "div",
           },
           "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Fury",
-            "className": "movie-title",
-          },
-          "ref": null,
-          "rendered": "Fury",
-          "type": "h2",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": 2014,
-            "className": "movie-date",
-          },
-          "ref": null,
-          "rendered": 2014,
-          "type": "h4",
         },
         Object {
           "instance": null,

@@ -84,7 +84,7 @@ Card.propTypes = {
    title: PropTypes.string,
    poster_path: PropTypes.string,
    overview: PropTypes.string,
-   release_date: PropTypes.number,
+   release_date: PropTypes.string,
    handleAddFavorite: PropTypes.func,
    handleRemoveFavorite: PropTypes.func,
    user: PropTypes.object

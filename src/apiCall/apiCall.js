@@ -80,12 +80,29 @@ const getUserFavorites = async (userId) => {
 
 const removeFavorite = async (favorite) => {
   const url = `http://localhost:3000/api/users/${favorite.user_id}/favorites/${favorite.movie_id}`
-  try{
+  try {
     const response = await fetch(url, {
       method: 'DELETE'
     })
   } catch(err) {
     const error = "Failed to remove favorite";
+    throw error;
+  }
+}
+
+const validateEmail = async (email) => {
+  const url = `https://pozzad-email-validator.p.mashape.com/emailvalidator/validateEmail/${email}`;
+  try {
+    const response = await fetch(url, {
+      headers: {
+        "X-Mashape-Key": "XfLb8sJ9IImshKfytOma3rPDAjZ9p1ar0ftjsn6YazGZKISheL",
+        "Accept": "application/json"
+      }
+    });
+    const valid = await response.json();
+    return valid
+  } catch (err) {
+    const error = 'Could not fetch validation';
     throw error;
   }
 }
@@ -96,5 +113,6 @@ export {
   fetchUser,
   postFavoriteToDb,
   getUserFavorites,
-  removeFavorite
+  removeFavorite,
+  validateEmail
 };

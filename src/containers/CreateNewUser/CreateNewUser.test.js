@@ -1,18 +1,21 @@
 import { CreateNewUser, mapDispatchToProps } from "./CreateNewUser";
 import React from "react";
-import { shallow } from "enzyme";
-import { addUserFetch } from "./../../apiCall/apiCall";
+import { shallow, mount } from "enzyme";
+import { addUserFetch, validateEmail } from "./../../apiCall/apiCall";
 
 jest.mock('./../../apiCall/apiCall');
 
 describe("CreateNewUser", () => {
   let wrapper;
   let mockHandleSignup;
+  let mockHandleError;
 
   beforeEach(() => {
-    mockHandleSignup = jest.fn()
+    mockHandleSignup = jest.fn();
+    mockHandleError = jest.fn();
     wrapper = shallow(<CreateNewUser 
       handleSignup={mockHandleSignup}
+      handleError={mockHandleError}
     />);
   });
 
@@ -30,38 +33,40 @@ describe("CreateNewUser", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("should update state on change", () => {
-    let mockEvent = {
-      target: { name: "email", value: "great" }
-    };
-    let expected = {
-      name: "",
-      email: "great",
-      password: ""
-    };
+  describe('handleChange', () => {
+    it("should update state on change", () => {
+      let mockEvent = {
+        target: { name: "email", value: "great" }
+      };
+      let expected = {
+        name: "",
+        email: "great",
+        password: ""
+      };
+  
+      wrapper.instance().handleChange(mockEvent);
+  
+      expect(wrapper.state()).toEqual(expected);
+    });
+  })
 
-    wrapper.instance().handleChange(mockEvent);
-
-    expect(wrapper.state()).toEqual(expected);
-  });
-
-  it('should calls addUserFetch callback after adding user', async () => {
-    let mockEvent = {preventDefault: jest.fn()};
-    Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
-    
-    expect(addUserFetch).toHaveBeenCalledWith(wrapper.state());  
-  });
-
-  it('should call handleSignup with the correct params', async () => {
-    const mockUser = {
-      "id": 1,
-      "name": ""
-    }
-    let mockEvent = {preventDefault: jest.fn()};  
-
-    await wrapper.instance().handleSubmit(mockEvent)
-
-    expect(mockHandleSignup).toHaveBeenCalledWith(mockUser)
+  describe('handleSubmit', () => {
+    it('should calls addUserFetch callback after adding user', async () => {
+      Promise.resolve(wrapper.instance().handleSubmit());
+      
+      expect(addUserFetch).toHaveBeenCalledWith(wrapper.state());  
+    });
+  
+    it('should call handleSignup with the correct params', async () => {
+      const mockUser = {
+        "id": 1,
+        "name": ""
+      }
+  
+      await wrapper.instance().handleSubmit()
+  
+      expect(mockHandleSignup).toHaveBeenCalledWith(mockUser)
+    })
   })
 
   describe('mapDispatchtoProps', () => {
@@ -93,9 +98,32 @@ describe("CreateNewUser", () => {
       }
       const mockError = "Email already in use";
 
-      mappedProps.handleError(mockError)
+      mappedProps.handleError(mockError);
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction)
     });
   });
+
+  describe('checkValidEmail', () => {
+    let mockEvent;
+    let mockState;
+    beforeEach(() => {
+      mockEvent = {
+        preventDefault: jest.fn()
+      };
+      mockState = 'thurmanvogt@gmail.com';
+      wrapper.setState({email: mockState});
+    })
+
+    it('should call validateEmail with the correct props', () => {
+      wrapper.instance().checkValidEmail(mockEvent);      
+      expect(validateEmail).toHaveBeenCalledWith(mockState);
+    })
+
+    it.skip('should call handleSubmit if actual.isValid is true', () => {
+      const spy = jest.spyOn(CreateNewUser, 'handleSubmit');
+      wrapper.instance().checkValidEmail(mockEvent);
+      expect(spy).toHaveBeenCalled()
+    })
+  })
 });

@@ -5,6 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <CreateNewUser
+    handleError={[Function]}
     handleSignup={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -20,7 +21,13 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <h2
+          className="login-header"
+>
+          SIGN UP
+</h2>,
         <input
+          className="form-field"
           name="name"
           onChange={[Function]}
           placeholder="name"
@@ -28,6 +35,7 @@ ShallowWrapper {
           value=""
 />,
         <input
+          className="form-field"
           name="email"
           onChange={[Function]}
           placeholder="email"
@@ -35,6 +43,7 @@ ShallowWrapper {
           value=""
 />,
         <input
+          className="form-field"
           name="password"
           onChange={[Function]}
           placeholder="password"
@@ -42,9 +51,11 @@ ShallowWrapper {
           value=""
 />,
         <input
+          className="submit-button"
           type="submit"
 />,
       ],
+      "className": "new-user-form border",
       "onSubmit": [Function],
       "type": "submit",
     },
@@ -55,6 +66,19 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "children": "SIGN UP",
+          "className": "login-header",
+        },
+        "ref": null,
+        "rendered": "SIGN UP",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "form-field",
           "name": "name",
           "onChange": [Function],
           "placeholder": "name",
@@ -70,6 +94,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "className": "form-field",
           "name": "email",
           "onChange": [Function],
           "placeholder": "email",
@@ -85,6 +110,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "className": "form-field",
           "name": "password",
           "onChange": [Function],
           "placeholder": "password",
@@ -100,6 +126,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "className": "submit-button",
           "type": "submit",
         },
         "ref": null,
@@ -116,7 +143,13 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <h2
+            className="login-header"
+>
+            SIGN UP
+</h2>,
           <input
+            className="form-field"
             name="name"
             onChange={[Function]}
             placeholder="name"
@@ -124,6 +157,7 @@ ShallowWrapper {
             value=""
 />,
           <input
+            className="form-field"
             name="email"
             onChange={[Function]}
             placeholder="email"
@@ -131,6 +165,7 @@ ShallowWrapper {
             value=""
 />,
           <input
+            className="form-field"
             name="password"
             onChange={[Function]}
             placeholder="password"
@@ -138,9 +173,11 @@ ShallowWrapper {
             value=""
 />,
           <input
+            className="submit-button"
             type="submit"
 />,
         ],
+        "className": "new-user-form border",
         "onSubmit": [Function],
         "type": "submit",
       },
@@ -151,6 +188,19 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "children": "SIGN UP",
+            "className": "login-header",
+          },
+          "ref": null,
+          "rendered": "SIGN UP",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "form-field",
             "name": "name",
             "onChange": [Function],
             "placeholder": "name",
@@ -166,6 +216,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "className": "form-field",
             "name": "email",
             "onChange": [Function],
             "placeholder": "email",
@@ -181,6 +232,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "className": "form-field",
             "name": "password",
             "onChange": [Function],
             "placeholder": "password",
@@ -196,6 +248,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "className": "submit-button",
             "type": "submit",
           },
           "ref": null,
