@@ -1,9 +1,10 @@
 import React from "react";
 import { postFavoriteToDb, removeFavorite } from './../../apiCall/apiCall';
 import { connect } from 'react-redux';
-import { removeFavoriteFromStore, addFavoriteToStore, addError } from '../../actions/index';
+import { removeFavoriteFromStore, addFavoriteToStore, addError } 
+  from '../../actions/index';
 import PropTypes from 'prop-types';
-import './Card.css'
+import './Card.css';
 
 export const Card = props => {
   const {
@@ -21,11 +22,11 @@ export const Card = props => {
       movie_id
     });
     props.handleRemoveFavorite(movie_id);
-  }
+  };
   const handleFavoriteClick = () => {
-    postFavoriteToDb(props, props.user)
+    postFavoriteToDb(props, props.user);
     props.handleAddFavorite(props);
-  }
+  };
   const movieIdArray = props.favorites.map(movie => movie.movie_id);
   const favoriteBtn = (
     <div
@@ -33,10 +34,12 @@ export const Card = props => {
       type="button"
       onClick={() => {
         props.user.user_id ? 
-        handleFavoriteClick()
-        : 
-        props.handleError("Sign in to add favorites")}
-        }>
+          handleFavoriteClick()
+          : 
+          props.handleError("Sign in to add favorites")
+        ; 
+      }
+      }>
       Favorite
     </div>);
     
@@ -45,8 +48,9 @@ export const Card = props => {
       className="delete-button"
       type="button"
       onClick={ () => {
-        props.user.user_id && handleDeleteClick()}
-        }>
+        props.user.user_id && handleDeleteClick();
+      }
+      }>
       Remove Favorite
     </div>);
 
@@ -70,24 +74,24 @@ export const Card = props => {
 export const mapStateToProps = (state) => ({
   user: state.user,
   favorites: state.favorites
-})
+});
 
 export const mapDispatchToProps = (dispatch) => ({
   handleRemoveFavorite: (movieId) => dispatch(removeFavoriteFromStore(movieId)),
   handleAddFavorite: (favorite) => dispatch(addFavoriteToStore(favorite)),
   handleError: (error) => dispatch(addError(error))  
-})
+});
 
 Card.propTypes = {
-   movie_id: PropTypes.number,
-   vote_average: PropTypes.number,
-   title: PropTypes.string,
-   poster_path: PropTypes.string,
-   overview: PropTypes.string,
-   release_date: PropTypes.string,
-   handleAddFavorite: PropTypes.func,
-   handleRemoveFavorite: PropTypes.func,
-   user: PropTypes.object
-  }
+  movie_id: PropTypes.number,
+  vote_average: PropTypes.number,
+  title: PropTypes.string,
+  poster_path: PropTypes.string,
+  overview: PropTypes.string,
+  release_date: PropTypes.string,
+  handleAddFavorite: PropTypes.func,
+  handleRemoveFavorite: PropTypes.func,
+  user: PropTypes.object
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

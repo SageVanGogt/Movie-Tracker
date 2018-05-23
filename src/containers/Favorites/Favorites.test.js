@@ -7,11 +7,11 @@ describe('Favorites', () => {
   it('should match the snapshot', () => {
     let mockProps = {
       favorites: [{movie_id:1}, {movie_id:2}, {movie_id:3}]
-    }
-    let wrapper = shallow(<Favorites {...mockProps}/>)
+    };
+    let wrapper = shallow(<Favorites {...mockProps}/>);
 
-    expect(wrapper).toMatchSnapshot()
-  })
+    expect(wrapper).toMatchSnapshot();
+  });
 
   describe('mapStateToProps', () => {
     it('should map user to props', () => {
@@ -21,14 +21,14 @@ describe('Favorites', () => {
           name: 'Sup Dude'
         },
         films: [],
-        favorites: [{},{}]
-      }
+        favorites: [{}, {}]
+      };
       const expected = {
-        favorites: [{},{}]
-      }
+        favorites: [{}, {}]
+      };
       const mappedProps = mapStateToProps(mockState);
 
       expect(mappedProps).toEqual(expected);
-    })
-  })
-})
+    });
+  });
+});

@@ -22,25 +22,25 @@ export const Nav = (props) => {
       <NavLink to="/">Home</NavLink>
       { 
         props.user.user_id ? 
-        signOutBtn
-        :
-        <NavLink to="/login">Login</NavLink>
+          signOutBtn
+          :
+          <NavLink to="/login">Login</NavLink>
       }
     </div>
-  )
-}
+  );
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   handleLogout: () => dispatch(logOutUser())
-})
+});
 
 export const mapStateToProps = (state) => ({
   user: state.user
-})
+});
 
 Nav.propTypes = {
   handleLogout: PropTypes.func,
   user: PropTypes.object
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

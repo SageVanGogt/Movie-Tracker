@@ -1,5 +1,5 @@
 const updateStoreUserReducer = (state = {}, user) => {
-  switch(user.type) {
+  switch (user.type) {
     case 'ADD_USER': 
       return {user_id: user.user_id, name: user.name};
     case 'LOGOUT_USER':
@@ -7,6 +7,6 @@ const updateStoreUserReducer = (state = {}, user) => {
     default:
       return state;
   }
-}
+};
 
 export default updateStoreUserReducer;
