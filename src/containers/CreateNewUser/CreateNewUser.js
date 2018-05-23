@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { addUserFetch } from "../../apiCall/apiCall";
+import { addUserFetch, validateEmail } from "../../apiCall/apiCall";
 import { connect } from 'react-redux'
 import { updateStoreUser, addError } from './../../actions/index';
 import PropTypes from 'prop-types';
@@ -23,8 +23,17 @@ export class CreateNewUser extends Component {
     })
   };
 
-  handleSubmit = async (event) => {
-    event.preventDefault();
+  checkValidEmail = async (event) => {
+    event.preventDefault();    
+    const actual = await validateEmail(this.state.email)
+    if (actual.isValid) {
+      this.handleSubmit();
+    } else {
+      this.props.handleError('That email is not valid') ;
+    }
+  };
+
+  handleSubmit = async () => {
     const response = await addUserFetch(this.state)
     if(response.id) {
       this.props.handleSignup({id: response.id, name: this.state.name})
@@ -38,7 +47,7 @@ export class CreateNewUser extends Component {
       <form 
         type="submit"
         className="new-user-form border" 
-        onSubmit={this.handleSubmit}
+        onSubmit={this.checkValidEmail}
       >
         <h2 className="login-header">SIGN UP</h2>
         <input

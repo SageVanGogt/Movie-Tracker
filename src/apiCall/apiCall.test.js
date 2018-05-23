@@ -4,7 +4,8 @@ import {
   fetchUser,
   postFavoriteToDb,
   getUserFavorites,
-  removeFavorite
+  removeFavorite,
+  validateEmail
 } from "./apiCall";
 import mockData from "../mockData/mockData";
 import key from "./apiKey";
@@ -303,7 +304,39 @@ describe("apiCall", () => {
       const url = `http://localhost:3000/api/users/${mockArg.user_id}/favorites/${mockArg.movie_id}`
       await removeFavorite(mockArg);
       expect(window.fetch).toHaveBeenCalledWith(url, mockRemove);
+    })
+  })
 
+  describe('validateEmail', () => {
+    let mockEmail;
+    let mockResponse;
+
+    beforeEach(() => {
+      mockEmail = 'thurmanvogt@gmail.com';
+      mockResponse = {
+        isValid: 'true'
+      }
+      window.fetch = jest.fn().mockImplementation(() => 
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(mockResponse)     
+      }));
+    })
+
+    it('should be called with the correct params', () => {
+      const url = `https://pozzad-email-validator.p.mashape.com/emailvalidator/validateEmail/${mockEmail}`;
+      const mockInit = {
+        headers: {
+          "X-Mashape-Key": "XfLb8sJ9IImshKfytOma3rPDAjZ9p1ar0ftjsn6YazGZKISheL",
+          "Accept": "application/json"
+        }
+      }
+      validateEmail(mockEmail);
+      expect(window.fetch).toHaveBeenCalledWith(url, mockInit);
+    })
+
+    it('should return an object with a isValid response' () => {
+      
     })
   })
 })
