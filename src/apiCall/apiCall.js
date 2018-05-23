@@ -102,7 +102,8 @@ const validateEmail = async (email) => {
     const valid = await response.json();
     return valid
   } catch (err) {
-    console.log(err);
+    const error = 'Could not fetch validation';
+    throw error;
   }
 }
 

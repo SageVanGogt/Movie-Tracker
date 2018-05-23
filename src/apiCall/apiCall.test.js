@@ -335,8 +335,20 @@ describe("apiCall", () => {
       expect(window.fetch).toHaveBeenCalledWith(url, mockInit);
     })
 
-    it('should return an object with a isValid response' () => {
-      
+    it('should return an object with a isValid response', async () => {
+      const expected = mockResponse;
+      const actual = await validateEmail(mockEmail);
+
+      expect(actual).toEqual(expected);
+    })
+
+    it('should throw an error if status is bad', () => {
+      window.fetch = jest.fn().mockImplementation(() => 
+      Promise.resolve({
+        status: 500
+      }))
+
+      expect(validateEmail()).rejects.toEqual('Could not fetch validation');
     })
   })
 })
