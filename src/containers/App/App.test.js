@@ -5,6 +5,7 @@ import { App, mapStateToProps, mapDispatchToProps } from './App';
 import mockCleanData from './../../mockData/mockCleanData';
 import mockData from './../../mockData/mockData';
 import { fetchRecentFilms } from './../../apiCall/apiCall';
+import * as helpers from './../../helper/helper';
 
 jest.mock('./../../apiCall/apiCall');
 describe('App', () => {
@@ -37,12 +38,21 @@ describe('App', () => {
     expect(fetchRecentFilms).toHaveBeenCalled();
   });
 
+<<<<<<< HEAD
   it.skip('getRecentFilms should call cleanFilmData on with fetchedFilms', async () => {
     let cleanFilmData = jest.fn();
     await wrapper.instance().getRecentFilms();
 
     expect(cleanFilmData).toHaveBeenCalledWith();
   });
+=======
+  it.skip('getRecentFilms should call cleanFilmData with fetchedFilms', async () => {
+    helpers.cleanFilmData = jest.fn();
+    await wrapper.instance().getRecentFilms();
+
+    expect(helpers.cleanFilmData).toHaveBeenCalledWith()
+  })
+>>>>>>> Add proptypes and fixed api test
 
   it('should call handlePageLoadFilms with the correct params', async () => {
     await wrapper.instance().getRecentFilms();

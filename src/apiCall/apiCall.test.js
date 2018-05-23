@@ -226,11 +226,9 @@ describe("apiCall", () => {
       expect(window.fetch).toHaveBeenCalledWith(...expected);
     });
 
-    it.skip("sets an error when the fetch fails", async () => {
+    it("sets an error when the fetch fails", async () => {
       window.fetch = jest.fn().mockImplementation(() =>
-        Promise.resolve({
-          status: 500
-        }));
+        Promise.rejects());
 
       await expect(postFavoriteToDb(mockMovie, mockUser)).rejects.toEqual("Failed to post favorite");
     });

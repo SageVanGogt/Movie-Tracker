@@ -90,7 +90,14 @@ export const mapDispatchToProps = (dispatch) => ({
 
 CreateNewUser.propTypes = {
   handleSignup: PropTypes.func,
+<<<<<<< HEAD
   user: PropTypes.object
 };
+=======
+  user: PropTypes.object,
+  error: PropTypes.string,
+  handleError: PropTypes.func
+}
+>>>>>>> Add proptypes and fixed api test
 
 export default connect(null, mapDispatchToProps)(CreateNewUser);
