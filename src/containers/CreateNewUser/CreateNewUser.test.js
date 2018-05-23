@@ -1,6 +1,6 @@
 import { CreateNewUser, mapDispatchToProps } from "./CreateNewUser";
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { addUserFetch, validateEmail } from "./../../apiCall/apiCall";
 
 jest.mock('./../../apiCall/apiCall');
@@ -105,19 +105,25 @@ describe("CreateNewUser", () => {
   });
 
   describe('checkValidEmail', () => {
-    it('should call validateEmail with the correct props', () => {
-      const mockEvent = {
+    let mockEvent;
+    let mockState;
+    beforeEach(() => {
+      mockEvent = {
         preventDefault: jest.fn()
       };
-      const mockState = 'thurmanvogt@gmail.com';
+      mockState = 'thurmanvogt@gmail.com';
       wrapper.setState({email: mockState});
-      wrapper.instance().checkValidEmail(mockEvent);
+    })
 
+    it('should call validateEmail with the correct props', () => {
+      wrapper.instance().checkValidEmail(mockEvent);      
       expect(validateEmail).toHaveBeenCalledWith(mockState);
     })
 
-    it('should call handleSubmit if actual.isValid is true', () => {
-
+    it.skip('should call handleSubmit if actual.isValid is true', () => {
+      const spy = jest.spyOn(CreateNewUser, 'handleSubmit');
+      wrapper.instance().checkValidEmail(mockEvent);
+      expect(spy).toHaveBeenCalled()
     })
   })
 });
