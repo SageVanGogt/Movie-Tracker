@@ -75,6 +75,6 @@ App.propTypes = {
   handlePageLoadFilms: PropTypes.func,
   user: PropTypes.object,
   error: PropTypes.string
-}
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
