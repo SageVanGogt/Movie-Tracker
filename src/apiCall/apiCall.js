@@ -2,18 +2,18 @@ import key from './apiKey';
 
 const fetchRecentFilms = async () => {
   const url = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22`;
-  try{
+  try {
     const response = await fetch(url);
     const filmData = await response.json();
     return filmData;
-  } catch(err){
-    const error = 'Failed to fetch data'
+  } catch (err){
+    const error = 'Failed to fetch data';
     throw error;
   }
-}
+};
 
 const addUserFetch = async (user) => {
-  const url = "http://localhost:3000/api/users/new"
+  const url = "http://localhost:3000/api/users/new";
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -21,14 +21,14 @@ const addUserFetch = async (user) => {
       headers: {
         Accept: 'application/json',
         "Content-Type": "application/json"}
-    })
+    });
     const userData = await response.json();
     return userData;
-  } catch(err){
-    const error = 'Failed to fetch data'
+  } catch (err){
+    const error = 'Failed to fetch data';
     throw error;
   }
-}
+};
 
 const fetchUser = async (user) => {
   const email = user.email.toLowerCase();
@@ -36,17 +36,17 @@ const fetchUser = async (user) => {
     method: 'POST',
     body: JSON.stringify({ email, password: user.password }),
     headers: {"Content-Type": "application/json"}
-  }
+  };
   const url = 'http://localhost:3000/api/users';
   try {
-    const response = await fetch(url, userBody)
+    const response = await fetch(url, userBody);
     const userData = await response.json();
     return userData;
   } catch (err) {
-    const error = 'Failed to fetch data'
+    const error = 'Failed to fetch data';
     throw error;
   }
-}
+};
 
 const postFavoriteToDb = async (favoriteInfo, user) => {
   const url = "http://localhost:3000/api/users/favorites/new";
@@ -57,38 +57,38 @@ const postFavoriteToDb = async (favoriteInfo, user) => {
       Accept: 'application/json',
       "Content-Type": "application/json"
     }
-  }
+  };
   try {
     await fetch(url, postData);
-  } catch(err) {
+  } catch (err) {
     const error = "Failed to post favorite";
     throw error;
   }
-}
+};
 
 const getUserFavorites = async (userId) => {
   const url = `http://localhost:3000/api/users/${userId}/favorites`;
-  try{
-  const response = await fetch(url);
-  const favorites = await response.json();
-  return favorites;
-  } catch(err) {
+  try {
+    const response = await fetch(url);
+    const favorites = await response.json();
+    return favorites;
+  } catch (err) {
     const error = "Failed to get favorites";
     throw error;
   }
-}
+};
 
 const removeFavorite = async (favorite) => {
-  const url = `http://localhost:3000/api/users/${favorite.user_id}/favorites/${favorite.movie_id}`
+  const url = `http://localhost:3000/api/users/${favorite.user_id}/favorites/${favorite.movie_id}`;
   try {
     const response = await fetch(url, {
       method: 'DELETE'
-    })
-  } catch(err) {
+    });
+  } catch (err) {
     const error = "Failed to remove favorite";
     throw error;
   }
-}
+};
 
 const validateEmail = async (email) => {
   const url = `https://pozzad-email-validator.p.mashape.com/emailvalidator/validateEmail/${email}`;
@@ -100,12 +100,12 @@ const validateEmail = async (email) => {
       }
     });
     const valid = await response.json();
-    return valid
+    return valid;
   } catch (err) {
     const error = 'Could not fetch validation';
     throw error;
   }
-}
+};
 
 export {
   fetchRecentFilms, 

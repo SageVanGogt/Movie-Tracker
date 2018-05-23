@@ -6,10 +6,10 @@ describe('errorReducer', () => {
     const mockAction = {
       type: 'ADD_ERROR',
       message: 'ALAN, YOU HAVE AN ERROR'
-    }
-    const expected = 'ALAN, YOU HAVE AN ERROR'
-    const actual = errorReducer(initialState, mockAction)
+    };
+    const expected = 'ALAN, YOU HAVE AN ERROR';
+    const actual = errorReducer(initialState, mockAction);
 
     expect(actual).toEqual(expected);
-  })
-})
+  });
+});

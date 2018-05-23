@@ -7,5 +7,5 @@ describe('Login', () => {
     let wrapper = shallow(<Login />);
 
     expect(wrapper).toMatchSnapshot();
-  })
-})
+  });
+});

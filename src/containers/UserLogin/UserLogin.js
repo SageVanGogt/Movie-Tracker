@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { fetchUser, getUserFavorites } from "../../apiCall/apiCall";
-import { updateStoreUser, addFavoritesToStore, addError } from './../../actions/index'
+import { updateStoreUser, addFavoritesToStore, addError }
+  from './../../actions/index';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './UserLogin.css';
@@ -16,10 +17,10 @@ export class UserLogin extends Component {
   }
 
   handleChange = (event) => {
-    const {name, value} = event.target
+    const {name, value} = event.target;
     this.setState({
-        [name]: value
-    })
+      [name]: value
+    });
   };
 
   handleSubmit = async (event) => {
@@ -27,16 +28,16 @@ export class UserLogin extends Component {
     try {
       const response = await fetchUser(this.state);
       this.props.handleLogin(response.data);
-      this.getFavorites(response.data)
-    } catch(err) {
+      this.getFavorites(response.data);
+    } catch (err) {
       const error = "Password does not match email";
       this.props.handleError(error);
     }
   };
 
   getFavorites = async (user) => {
-      const favorites = await getUserFavorites(user.id);
-      this.props.populateFavorites(favorites.data)
+    const favorites = await getUserFavorites(user.id);
+    this.props.populateFavorites(favorites.data);
   }
 
   render() {
@@ -65,10 +66,10 @@ export class UserLogin extends Component {
           onChange={this.handleChange}
           placeholder="password"          
         />
-         <input
+        <input
           className = "submit-button"
           type = "submit" 
-         />
+        />
       </form>
     );
   }
@@ -78,12 +79,12 @@ export const mapDispatchToProps = (dispatch) => ({
   handleLogin: (user) => dispatch(updateStoreUser(user)),
   populateFavorites: (movies) => dispatch(addFavoritesToStore(movies)),
   handleError: (error) => dispatch(addError(error))  
-})
+});
 
 UserLogin.propTypes = {
   handleLogin: PropTypes.func,
   populateFavorites: PropTypes.func,
   handleError: PropTypes.func
-}
+};
 
 export default connect(null, mapDispatchToProps)(UserLogin);

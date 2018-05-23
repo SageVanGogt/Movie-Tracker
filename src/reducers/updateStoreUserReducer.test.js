@@ -8,25 +8,25 @@ describe('updateStoreUserReducer', () => {
       "name": "Taylor"
     };
     const mockState = {
-        "user_id": 1,
-        "name": "Taylor"   
+      "user_id": 1,
+      "name": "Taylor"   
     };
     const initialState = {};
     const actual = updateStoreUserReducer(initialState, mockAction);
     expect(actual).toEqual(mockState);
-  })
+  });
 
   it('should return an empty object when logOutUser is called', () => {
     const mockAction = {
       type: "LOGOUT_USER"
-    }
+    };
     const initialState = {
       "user_id": 1,
       "name": "Taylor"
     };
-    const mockState = {}
+    const mockState = {};
     const actual = updateStoreUserReducer(initialState, mockAction);
 
     expect(actual).toEqual(mockState);
-  })
-})
+  });
+});

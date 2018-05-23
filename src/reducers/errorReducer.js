@@ -6,6 +6,6 @@ const errorReducer = (state = '', action) => {
     default:
       return state;
   }
-}
+};
 
 export default errorReducer;

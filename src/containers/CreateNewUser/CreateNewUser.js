@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { addUserFetch, validateEmail } from "../../apiCall/apiCall";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { updateStoreUser, addError } from './../../actions/index';
 import PropTypes from 'prop-types';
 import './CreateNewUser.css';
@@ -17,15 +17,15 @@ export class CreateNewUser extends Component {
   }
 
   handleChange = (event) => {
-    const {name, value} = event.target
+    const {name, value} = event.target;
     this.setState({
-        [name]: value
-    })
+      [name]: value
+    });
   };
 
   checkValidEmail = async (event) => {
     event.preventDefault();    
-    const actual = await validateEmail(this.state.email)
+    const actual = await validateEmail(this.state.email);
     if (actual.isValid) {
       this.handleSubmit();
     } else {
@@ -34,9 +34,9 @@ export class CreateNewUser extends Component {
   };
 
   handleSubmit = async () => {
-    const response = await addUserFetch(this.state)
-    if(response.id) {
-      this.props.handleSignup({id: response.id, name: this.state.name})
+    const response = await addUserFetch(this.state);
+    if (response.id) {
+      this.props.handleSignup({id: response.id, name: this.state.name});
     } else if (response.error) {
       this.props.handleError("Email already in use");
     }
@@ -74,10 +74,10 @@ export class CreateNewUser extends Component {
           onChange={this.handleChange}
           placeholder="password"          
         />
-         <input
-         className = "submit-button"
-         type = "submit"
-         />
+        <input
+          className = "submit-button"
+          type = "submit"
+        />
       </form>
     );
   }
@@ -86,11 +86,11 @@ export class CreateNewUser extends Component {
 export const mapDispatchToProps = (dispatch) => ({
   handleSignup:(user) => dispatch(updateStoreUser(user)),
   handleError: (error) => dispatch(addError(error))    
-})
+});
 
 CreateNewUser.propTypes = {
   handleSignup: PropTypes.func,
   user: PropTypes.object
-}
+};
 
-export default connect(null, mapDispatchToProps)(CreateNewUser)
+export default connect(null, mapDispatchToProps)(CreateNewUser);

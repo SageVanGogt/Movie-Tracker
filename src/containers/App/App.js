@@ -11,9 +11,9 @@ import RecentMovies from '../RecentMovies/RecentMovies';
 import Favorites from '../Favorites/Favorites';
 
 export class App extends Component {
-  
+
   componentDidMount() {
-    this.getRecentFilms()
+    this.getRecentFilms();
   }
 
   async getRecentFilms() {
@@ -23,49 +23,50 @@ export class App extends Component {
   }
 
   setError() {
-    alert(this.props.error)
-    this.props.handleError('')
+    alert(this.props.error);
+    this.props.handleError('');
   }
 
   render() {
     return (
       <div className="App">
-        <header> 
+        <header>
           <Nav />
         </header>
         {this.props.error.length > 1 &&
           this.setError()
         }
         <Switch>
-          <Route 
-            exact path="/login" 
-            render= {() => (
+          <Route
+            exact path="/login"
+            render={() => (
               this.props.user.user_id ?
-              <Redirect to="/" /> :
-              <Login />
+                <Redirect to="/" /> :
+                <Login />
             )}
           />
-          <Route 
-            exact path="/" 
+          <Route
+            exact path="/"
             component={RecentMovies}
           />
-          <Route 
+          <Route
             exact path="/favorites"
-            component={Favorites}/>
+            component={Favorites} />
         </Switch>
-      </div> 
+      </div>
     );
   }
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  handlePageLoadFilms: (pageLoadFilms) => dispatch(addRecentFilms(pageLoadFilms)),
-  handleError: (error) => dispatch(addError(error))  
-})
+  handlePageLoadFilms: (pageLoadFilms) => 
+    dispatch(addRecentFilms(pageLoadFilms)),
+  handleError: (error) => dispatch(addError(error))
+});
 
 export const mapStateToProps = (state) => ({
   user: state.user,
   error: state.error
-})
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

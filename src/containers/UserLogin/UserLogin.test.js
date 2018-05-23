@@ -16,7 +16,7 @@ describe("UserLogin", () => {
     wrapper = shallow(<UserLogin 
       handleLogin={mockHandleLogin} 
       populateFavorites={mockPopulateFavorites}
-      />);
+    />);
   });
 
   it("has a default state", () => {
@@ -47,8 +47,8 @@ describe("UserLogin", () => {
   });
 
   it('should calls fetchUser callback after adding user', async () => {
-    let mockEvent = {preventDefault: jest.fn()}
-    Promise.resolve(wrapper.instance().handleSubmit(mockEvent))
+    let mockEvent = {preventDefault: jest.fn()};
+    Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
     
     expect(fetchUser).toHaveBeenCalledWith(wrapper.state());
   });
@@ -67,53 +67,51 @@ describe("UserLogin", () => {
     });
 
     it('should call dispatch on handleLogin with the correct params', () => {
-      const mockDispatch = jest.fn()
-      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
       const mockUser = {
-       id: 1,
-       name: "Doc"
-      }
+        id: 1,
+        name: "Doc"
+      };
       const mockAction = {
         type: 'ADD_USER',
         user_id: 1,
         name: "Doc"
-      }
+      };
 
-      mappedProps.handleLogin(mockUser)
+      mappedProps.handleLogin(mockUser);
 
-      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
-    })
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
 
     it('should call dispatch on populateFavorites with the correct params', () => {
-      const mockDispatch = jest.fn()
-      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
         type: "ADD_FAVORITES",
         favorites: [{}, {}]
-      }
-      const mockFavorites = [{},{}]
+      };
+      const mockFavorites = [{}, {}];
   
-      mappedProps.populateFavorites(mockFavorites)
+      mappedProps.populateFavorites(mockFavorites);
   
-      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
 
-     it('should call dispatch on handleError with the correct params', () => {
-       const mockDispatch = jest.fn()
-       const mappedProps = mapDispatchToProps(mockDispatch)
-       const mockAction = {
-         type: "ADD_ERROR",
-         message: "Password does not match email"
-       }
-       const mockError = "Password does not match email";
+    it('should call dispatch on handleError with the correct params', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: "ADD_ERROR",
+        message: "Password does not match email"
+      };
+      const mockError = "Password does not match email";
 
-       mappedProps.handleError(mockError)
+      mappedProps.handleError(mockError);
 
-       expect(mockDispatch).toHaveBeenCalledWith(mockAction)
-     });
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
   });
-
-
 });
 
 

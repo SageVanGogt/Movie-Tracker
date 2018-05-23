@@ -1,6 +1,6 @@
 import React from 'react';
 import { Nav, mapDispatchToProps, mapStateToProps } from './Nav';
-import {shallow} from 'enzyme'
+import {shallow} from 'enzyme';
 
 describe('Nav', () => {
 
@@ -9,43 +9,43 @@ describe('Nav', () => {
       user:{
         user_id:1
       }
-    }
-    let wrapper = shallow(<Nav {...mockProps} />)
+    };
+    let wrapper = shallow(<Nav {...mockProps} />);
 
-    expect(wrapper).toMatchSnapshot()
-  })
+    expect(wrapper).toMatchSnapshot();
+  });
 
   describe('mapDispatchToProps', () => {
     it('should call dispatch with the correct params', () => {
       const mockDispatch = jest.fn();
-      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
         type: "LOGOUT_USER"
-      }
-      mappedProps.handleLogout()
+      };
+      mappedProps.handleLogout();
 
-      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
-    })
-  })
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+  });
   describe('mapStateToProps', () => {
     it('should map the user to props', () => {
       const mockState = {
         user: {
           id: 1,
-          name: 'Alan',
-          },
+          name: 'Alan'
+        },
         films: []
-      }
+      };
 
       const expected = {
         user: {
           id: 1,
-          name: 'Alan',
+          name: 'Alan'
         }
-      }
+      };
       
-      const mappedProps = mapStateToProps(mockState)
-      expect(mappedProps).toEqual(expected)
-    })
-  })
-})
+      const mappedProps = mapStateToProps(mockState);
+      expect(mappedProps).toEqual(expected);
+    });
+  });
+});

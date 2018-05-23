@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import addFilmsReducer from './addFilmsReducer';
-import updateStoreUserReducer from './updateStoreUserReducer'
-import addFavoritesReducer from './addFavoritesReducer'
+import updateStoreUserReducer from './updateStoreUserReducer';
+import addFavoritesReducer from './addFavoritesReducer';
 import errorReducer from './errorReducer';
 
 const rootReducer = combineReducers({
@@ -9,6 +9,6 @@ const rootReducer = combineReducers({
   user: updateStoreUserReducer,
   favorites: addFavoritesReducer,
   error: errorReducer
-})
+});
 
-export default rootReducer
+export default rootReducer;

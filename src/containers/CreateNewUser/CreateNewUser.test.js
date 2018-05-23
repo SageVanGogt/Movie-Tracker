@@ -1,6 +1,6 @@
 import { CreateNewUser, mapDispatchToProps } from "./CreateNewUser";
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import { addUserFetch, validateEmail } from "./../../apiCall/apiCall";
 
 jest.mock('./../../apiCall/apiCall');
@@ -48,7 +48,7 @@ describe("CreateNewUser", () => {
   
       expect(wrapper.state()).toEqual(expected);
     });
-  })
+  });
 
   describe('handleSubmit', () => {
     it('should calls addUserFetch callback after adding user', async () => {
@@ -61,46 +61,46 @@ describe("CreateNewUser", () => {
       const mockUser = {
         "id": 1,
         "name": ""
-      }
+      };
   
-      await wrapper.instance().handleSubmit()
+      await wrapper.instance().handleSubmit();
   
-      expect(mockHandleSignup).toHaveBeenCalledWith(mockUser)
-    })
-  })
+      expect(mockHandleSignup).toHaveBeenCalledWith(mockUser);
+    });
+  });
 
   describe('mapDispatchtoProps', () => {
     it('should be called with the correct params', () => {
-      const mockDispatch = jest.fn()
-      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
         type: "ADD_USER",
         user_id: 1,
-        name: "doc",  
-      }
+        name: "doc"  
+      };
 
       const mockUser = {
         id: 1,
         name: 'doc'
-      }
+      };
 
-      mappedProps.handleSignup(mockUser)
+      mappedProps.handleSignup(mockUser);
 
-      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
 
     it('should call dispatch on handleError with the correct params', () => {
-      const mockDispatch = jest.fn()
-      const mappedProps = mapDispatchToProps(mockDispatch)
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
         type: "ADD_ERROR",
         message: "Email already in use"
-      }
+      };
       const mockError = "Email already in use";
 
       mappedProps.handleError(mockError);
 
-      expect(mockDispatch).toHaveBeenCalledWith(mockAction)
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
   });
 
@@ -113,17 +113,17 @@ describe("CreateNewUser", () => {
       };
       mockState = 'thurmanvogt@gmail.com';
       wrapper.setState({email: mockState});
-    })
+    });
 
     it('should call validateEmail with the correct props', () => {
       wrapper.instance().checkValidEmail(mockEvent);      
       expect(validateEmail).toHaveBeenCalledWith(mockState);
-    })
+    });
 
     it.skip('should call handleSubmit if actual.isValid is true', () => {
       const spy = jest.spyOn(CreateNewUser, 'handleSubmit');
       wrapper.instance().checkValidEmail(mockEvent);
-      expect(spy).toHaveBeenCalled()
-    })
-  })
+      expect(spy).toHaveBeenCalled();
+    });
+  });
 });
