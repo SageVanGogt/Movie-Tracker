@@ -30,6 +30,18 @@ const removeFavorite = jest.fn().mockImplementation(() => Promise.resolve())
 
 const postFavoriteToDb = jest.fn().mockImplementation(() => Promise.resolve())
 
+const validateEmail = jest.fn().mockImplementation(() => Promise.resolve({
+    isValid: 'true'
+}))
 
-export {fetchRecentFilms, addUserFetch, fetchUser, getUserFavorites, removeFavorite, postFavoriteToDb };
+
+export {
+    fetchRecentFilms, 
+    addUserFetch, 
+    fetchUser, 
+    getUserFavorites, 
+    removeFavorite, 
+    postFavoriteToDb,
+    validateEmail
+};
 
