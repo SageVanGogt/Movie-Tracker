@@ -9,6 +9,7 @@ import Nav from '../Nav/Nav';
 import Login from '../../components/Login/Login';
 import RecentMovies from '../RecentMovies/RecentMovies';
 import Favorites from '../Favorites/Favorites';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
 
@@ -68,5 +69,12 @@ export const mapStateToProps = (state) => ({
   user: state.user,
   error: state.error
 });
+
+App.propTypes = {
+  handleError: PropTypes.func,
+  handlePageLoadFilms: PropTypes.func,
+  user: PropTypes.object,
+  error: PropTypes.string
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
